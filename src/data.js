@@ -18,21 +18,9 @@ const data = [
       "description":""
     },
     {
-      "city_name": "Austin",
-      "country_name": "",
-      "photo": "https://raw.githubusercontent.com/theapache64/city-kit-api/master/data/austin/day.jpg",
-      "description":""
-    },
-    {
       "city_name": "Washington Dc",
       "country_name": "",
       "photo": "https://raw.githubusercontent.com/theapache64/city-kit-api/master/data/washington-dc/day.jpg",
-      "description":""
-    },
-    {
-      "city_name": "Seattle",
-      "country_name": "",
-      "photo": "https://raw.githubusercontent.com/theapache64/city-kit-api/master/data/seattle/day.jpg",
       "description":""
     },
     {
@@ -69,12 +57,6 @@ const data = [
       "city_name": "Boston",
       "country_name": "",
       "photo": "https://raw.githubusercontent.com/theapache64/city-kit-api/master/data/boston/day.jpg",
-      "description":""
-    },
-    {
-      "city_name": "Nashville",
-      "country_name": "",
-      "photo": "https://raw.githubusercontent.com/theapache64/city-kit-api/master/data/nashville/day.jpg",
       "description":""
     },
     {

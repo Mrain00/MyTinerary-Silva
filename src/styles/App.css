@@ -7,20 +7,45 @@
 body{
     width: 100%;
 }
+#appbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    background-color:#53beec;
+    backdrop-filter: blur(1rem);
+    box-shadow: #434244;
+}
+.logo{
+    height: 2.3rem;
+}
+#accountcircle{
+    width: 2rem;
+    height: 2rem;
+}
 .main{
-    height: 70%;
+    margin-top: 1rem;
+    min-height: calc(100vh - 10vh - 2rem);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
 }
 .main section{
     align-content: flex-start;
     align-self: center;
+    text-align: center;
     margin-left: 1rem;
     line-height: 5rem;
+    flex-grow: 2;
 }
 .main h1{
+    
     color: #434244 ;
     font-family: Lexend Deca;
     font-size: 5rem;
@@ -35,4 +60,8 @@ body{
     align-content: flex-end;
     width: 50%;
     height: 100%;
+    flex-grow: 1;
+}
+.carousel_section{
+    height: 100vh;
 }

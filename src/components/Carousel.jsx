@@ -4,36 +4,47 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-cards";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import "../styles/Carousel.css"
-
+import "../styles/Carousel.css";
+import data from '../data'
 // import required modules
-import { EffectCards } from "swiper";
-import data from "../data";
+import { Grid, Pagination, Autoplay, Navigation } from "swiper";
 
-export default function Carousel() {
+export default function App() {
   return (
     <>
       <Swiper
-        effect={"cards"}
-        grabCursor={true}
-        modules={[EffectCards]}
+        slidesPerView={2}
+        grid={{
+          rows: 2
+        }}
+        slidesPerGroup={2}
+        spaceBetween={30}
+        pagination={{
+          clickable: true
+        }}
+        hashNavigation={{
+          watchState: true
+        }}
+        navigation={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false
+        }}
+        modules={[Grid, Pagination, Autoplay, Navigation]}
         className="mySwiper"
       >
           {data.map(evento=>
         <SwiperSlide>
             <img
             id="contain" 
-            src={evento.photo}
-            width={500}
-            height={450}/>
-            <h3
-            id="eventoname">
-                {evento.city_name}</h3>
-                <span>
-                    {}
-                </span>
+            src={evento.photo}/>
+            <div id="eventoname">
+            <h3>
+                {evento.city_name}</h3></div>
         </SwiperSlide>)}
       </Swiper>
     </>

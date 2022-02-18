@@ -7,14 +7,16 @@ function App() {
   return (
     <div className="App">
       <ResponsiveAppBar/>
-      <div className='main'>
+        <div className='main'>
         <section>
         <h1>MyTinerary</h1>
         <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
         </section>
         <img src={Banner} alt='banner' id='fotomain' />
         </div>
-{<Carousel />}    
+        <div className='carousel_section'>
+        <Carousel />    
+        </div>
 </div>
   );
 }
