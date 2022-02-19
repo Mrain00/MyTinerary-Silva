@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "../styles/Carousel.css";
 import data from '../data'
 // import required modules
@@ -18,7 +17,7 @@ export default function App() {
     <>
       <Swiper
         slidesPerView={2}
-        grid={{
+        grid={{ 
           rows: 2
         }}
         slidesPerGroup={2}

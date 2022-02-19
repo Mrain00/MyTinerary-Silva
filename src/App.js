@@ -15,6 +15,11 @@ function App() {
         <img src={Banner} alt='banner' id='fotomain' />
         </div>
         <div className='carousel_section'>
+          <section>
+            <h2>
+            Popular MYTINERARIES!
+            </h2>
+          </section>
         <Carousel />    
         </div>
 </div>
