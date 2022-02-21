@@ -148,3 +148,11 @@ body{
     padding: 1rem 0;
     color: #53beec;
 }
+.Call{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 14px;
+    background-color: #53beec;
+    padding: 1rem;
+    font-weight: 600;
+}
