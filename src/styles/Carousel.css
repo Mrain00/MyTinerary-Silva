@@ -53,5 +53,41 @@
   font-family: Josefin Sans;
 }
 .swiper-button-next, .swiper-button-prev{
-  
+  display: flex;
+  background-color: #434244;
+  color: #fff;
+  border-radius: 3rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.swiper-button-next::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #434244;
+  color: #fff;
+  border-radius: 3rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  margin-left: 3px;
+}
+.swiper-button-prev::after{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #434244;
+  color: #fff;
+  border-radius: 3rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  margin-right: 3px;
 }

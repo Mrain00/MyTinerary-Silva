@@ -1,0 +1,39 @@
+footer{
+    height: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #53beec;
+}
+footer p{
+    text-align: center;
+}
+.Navv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.Navv h4{
+    margin-bottom: 1rem;
+}
+.ButtonAppBar{
+    border-radius: .2rem;
+    border: none;
+    padding: .4rem;
+    margin: .1rem 0;
+    background-color: #fff;
+    font-weight:600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:#434345 ;
+}
+.Navv h4{
+    color: #434345;
+    font-size: 1.4rem;
+    text-align: center;
+}
+.Link{
+    padding: .1rem 0;
+}

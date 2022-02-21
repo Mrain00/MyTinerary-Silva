@@ -1,28 +1,20 @@
-import Banner from './img/banner.png'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './styles/App.css';
-import './components/NavBar'
+import './components/NavBar';
 import ResponsiveAppBar from './components/NavBar';
-import Carousel from './components/Carousel';
+import Home from './components/home/home'
+import Footer from './components/Footer/Footer'
+import Cities from './components/Cities/cities';
 function App() {
   return (
-    <div className="App">
+      <BrowserRouter>
       <ResponsiveAppBar/>
-        <div className='main'>
-        <section>
-        <h1>MyTinerary</h1>
-        <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
-        </section>
-        <img src={Banner} alt='banner' id='fotomain' />
-        </div>
-        <div className='carousel_section'>
-          <section>
-            <h2>
-            Popular MYTINERARIES!
-            </h2>
-          </section>
-        <Carousel />    
-        </div>
-</div>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/cities' element={<Cities/>}/>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
   );
 }
 

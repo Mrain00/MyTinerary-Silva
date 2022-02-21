@@ -12,7 +12,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 10vh;
-    width: 80%;
+    width: 50vw;
     margin: auto;
     margin-top: 1rem;
     border-radius: 2rem;
@@ -20,7 +20,9 @@ body{
     backdrop-filter: blur(1rem);
     box-shadow: #434244;
 }
-
+.linkresp{
+    text-decoration: none;
+}
 .logo{
     height: 2.3rem;
 }
@@ -60,9 +62,89 @@ body{
 #fotomain{
     align-content: flex-end;
     width: 50%;
-    height: 100%;
+    height: 60%;
     flex-grow: 1;
 }
 .carousel_section{
-    height: 100vh;
+    min-height: 50vh;
+}
+.Hero{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 60%;
+    width: 100%;
+}
+.Hero h2{
+    padding: 3rem;
+    font-size: 2rem;
+    color: #53beec;
+    align-self: center;
+    text-align: center;
+}
+#hero{
+    width: 30%;
+    margin-bottom: 1rem;
+}
+@media (min-width:304px) and (max-width:514px) {
+    .main h1{
+        font-size: 3rem;
+    }
+    .Hero>h2{
+        font-size: 2rem;
+        padding: 1rem 0;
+    }
+    #hero{
+        width: 50%;
+    }
+}
+@media (min-width:205px) and (max-width:304px){
+    .main h1{
+        font-size: 1.5rem;
+    }
+    .main p{
+        font-size: .8rem;
+    }
+    .Hero>h2{
+        font-size: 1rem;
+        padding: .5rem 0;
+    }
+    #hero{
+        width: 40%;
+    }
+    #appbar{
+        width: 70vw;
+    }
+}
+@media (min-width:105px) and (max-width:205px){
+    .main h1{
+        font-size: 1.4rem;
+    }
+    .main p{
+        font-size: .5rem;
+    }
+    .Hero>h2{
+        font-size: 1rem;
+        padding: .5rem 0;
+    }
+    #hero{
+        width: 40%;
+    }
+    #appbar{
+        width: 100vw;
+    }
+}
+#mant{
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    width: 70%;
+    margin: auto;
+}
+.manttext{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    color: #53beec;
 }
