@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from '../../img/banner.png';
 import { Link as LinkRouter } from "react-router-dom";
+
 const Main = ()=>{
     return(
     <div className='main'>

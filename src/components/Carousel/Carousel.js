@@ -2,14 +2,13 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Hero from '../../img/hombretravel.svg';
-
+import data from '../../data'
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../../styles/Carousel.css";
-import data from '../../data'
 // import required modules
 import { Grid, Pagination, Autoplay, Navigation } from "swiper";
 
@@ -23,7 +22,7 @@ export default function App() {
             <img src={Hero} alt='hero' id='hero' />
       </section>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={4}
         grid={{   
           rows: 2
         }}
@@ -62,7 +61,7 @@ export default function App() {
         className="mySwiper"
       >
           {data.map(evento=>
-        <SwiperSlide>
+        <SwiperSlide id='swiperslide'>
             <img
             id="contain" 
             src={evento.photo}/>

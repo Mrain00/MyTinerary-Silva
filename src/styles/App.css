@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 body{
+    min-height: 100%;
     width: 100%;
 }
 #appbar{
@@ -62,7 +63,7 @@ body{
 #fotomain{
     align-content: flex-end;
     width: 50%;
-    height: 60%;
+    height: 88vh;
     flex-grow: 1;
 }
 .carousel_section{
