@@ -1,31 +1,60 @@
 import React from 'react'
 import Card from './Card'
-import data from '../../card.json'
-import { useState } from 'react'
-function Cards() {
-  const [filter, setFilter] = useState('');
+/* import data from '../../card.json' */
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import '../../styles/Cards.css'
 
-  let dataSearch = data.filter(city => city.city_name.substring(0,filter.length).toLowerCase() === filter.toLowerCase().trim())
+ function Cards() {
+  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [searchTitle, setSearchTitle] = useState("");
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      setLoading(true);
+      const response = await axios.get(
+        "http://localhost:4000/api/allcities"
+      );
+      setPosts(response.data.response.ciudades);
+      setLoading(false);
+    };
+
+    loadPosts();
+  }, []);
+
   return (
-    <div className='container d-flex justify-content-center h-100'>
-      <div className='col'>
-        <input type="text" placeholder="Search..." value={filter} onChange={(event)=>setFilter(event.target.value)}/>
-        </div>
-        <div className='row'>
-           {
-           dataSearch.map(card=> (
-                <div className='col-md-4' key={card.id}>
-                    <Card
-                    title={card.city_name}
-                    image={card.night_photo_url}
-                    text={card.description}
-                    />
-                </div>
-           ))
-           }
-        </div>
+    <div className="App">
+      <h3>Search Filter</h3>
+      <input
+        type="text"
+        placeholder="Search..."
+        onChange={(e) => setSearchTitle(e.target.value)}
+      />
+      {loading ? (
+        <h4>Loading ...</h4>
+      ) : (
+        posts
+          .filter((value) => {
+            if (searchTitle === "") {
+              return value;
+            } else if (
+              value.city.toLowerCase().startsWith(searchTitle.toLowerCase().trim())
+            ) {
+              return value;
+            }
+          })
+          .map((item) => 
+          <div className='col-md-3'>
+          <Card key={item.id} 
+          title={item.city}
+          text={item.description}
+          image={item.sunset_photo}
+          />
+          </div>)
+      )}
     </div>
-  )
+  );
 }
 
 export default Cards
