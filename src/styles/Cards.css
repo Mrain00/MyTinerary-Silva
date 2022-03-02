@@ -1,0 +1,24 @@
+.searchfilter{
+margin: 0 auto;
+display: flex;
+flex-direction:column;
+justify-content: center;
+width: 15rem;
+text-align: center;
+padding: 1rem;
+}
+.searchfilter input{
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+.searchfilter input[placeholder="Search..."]{
+    text-align:center
+
+}
+.col-md-4{
+    margin: 1rem 0;
+    text-align: center;
+}
+.notFound{
+    
+}

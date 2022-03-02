@@ -4,7 +4,7 @@ import Cards from '../Card/Cards'
 const Cities = ()=>{
     return(
         <>
-        <h1 className="manttext">CARDS</h1>
+        <h1 className="manttext">The best cities in the world!</h1>
         <Cards/>
         </>
     )
