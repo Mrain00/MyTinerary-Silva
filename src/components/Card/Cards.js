@@ -1,7 +1,7 @@
 import React from 'react'
-import Card from './Card'
 /* import data from '../../card.json' */
 import { useState, useEffect } from 'react'
+import { Link as LinkRouter } from "react-router-dom";
 import axios from 'axios'
 import '../../styles/Cards.css'
  function Cards() {
@@ -9,8 +9,7 @@ import '../../styles/Cards.css'
   const [posts, setPosts] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
   const [ciudades, setCiudades] = useState([])
- /*  const [city, setCity] = useState(); */
- useEffect( () => {
+ useEffect(() => {
   const loadPosts = async () => {
     setLoading(true);
     const response = await axios.get(
@@ -18,7 +17,7 @@ import '../../styles/Cards.css'
     )
     setCiudades(response.data.response.ciudades)
     setPosts(response.data.response.ciudades)
-    setLoading(false)
+    setLoading(false);
   }
 
   loadPosts()
@@ -46,7 +45,7 @@ const filtro = function (resultado) {
   return (
     <>
     <div className='searchfilter'>
-      <h3>Filter by Cities</h3>
+      <h3 className='filterName'>Filter by Cities</h3>
       <input
         type="text"
         placeholder="Search..."
@@ -59,12 +58,22 @@ const filtro = function (resultado) {
       {loading ? (<h4>Loading ...</h4>) : (console.log("este es el console log de loading"))}
       {ciudades.length !== 0 ? (
         ciudades.map((item) => (
-        <div className='col-md-4 container-fluid' key={item.id}>
-        <Card 
-        title={item.city}
-        text={item.description}
-        image={item.sunset_photo}
-        />
+        <div className='col-md-4 container-fluid' >
+        <div className='card text-center bg-dark h-100'>
+      <img src={item.sunset_photo} alt="city" className='img-fluid'/>
+      <div className='card-body text-light container-fluid'>
+        <h4 className="card-title">
+          {item.city}
+        </h4>
+        <p className='card-text text-secondary '>
+          {item.description}
+        </p>
+        {console.log(item._id)}
+        <LinkRouter to={`/detalles/${item._id}`} className="btn btn-outline-secondary rounded-0">
+          Go to this website
+        </LinkRouter>
+      </div>
+    </div>
         </div>))
         ) : (
         <img alt='notFound'src='https://www.hostingplus.com.co/wp-content/uploads/2020/12/error404quees.jpg' className='notFound'/>

@@ -20,5 +20,14 @@ padding: 1rem;
     text-align: center;
 }
 .notFound{
-    
+    padding: 1rem;
+    border-radius:100rem;
+    width: 100%;
+    height: 100%;
+}
+.filterName{
+    background: linear-gradient(#53beec, #53beeca4);
+    text-align: center;
+  -webkit-background-clip: text;
+  color: transparent; 
 }
