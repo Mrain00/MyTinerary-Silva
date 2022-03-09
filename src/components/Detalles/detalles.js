@@ -2,16 +2,18 @@ import React from "react";
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import '../../styles/Detalles.css'
 import { Link as LinkRouter } from "react-router-dom";
+import '../../styles/Detalles.css'
 export default function Detalles() {
     const [ciudades, setCiudades] = useState([])
     const { id } = useParams()
-    axios.get(
+      axios.get(
         "http://localhost:4000/api/allcities"
       )
-      .then(response=>setCiudades((response.data.response.ciudades).filter(card=>card._id == id)))
+      .then(response=>setCiudades((response.data.response.ciudades).filter(card=>card._id === id)))
+      
 
+    
     return(
         <div className="container">
             <img src="https://media.moddb.com/images/members/5/4589/4588901/profile/pngwing.com_2.png" width={100} alt={"underconstruction"}/>

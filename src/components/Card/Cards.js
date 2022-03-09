@@ -1,47 +1,24 @@
 import React from 'react'
-/* import data from '../../card.json' */
 import { useState, useEffect } from 'react'
 import { Link as LinkRouter } from "react-router-dom";
-import axios from 'axios'
 import '../../styles/Cards.css'
- function Cards() {
+import Spinner from './Spinner'
+import {connect} from 'react-redux';
+import citiesActions from '../../redux/actions/citiesActions';
+ function Cards(props) {
   const [loading, setLoading] = useState(false);
-  const [posts, setPosts] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
-  const [ciudades, setCiudades] = useState([])
  useEffect(() => {
-  const loadPosts = async () => {
     setLoading(true);
-    const response = await axios.get(
-      "http://localhost:4000/api/allcities"
-    )
-    setCiudades(response.data.response.ciudades)
-    setPosts(response.data.response.ciudades)
+    props.fetchearCiudades()
     setLoading(false);
-  }
-
-  loadPosts()
 }, [])
+console.log(props)
 
  const searching = (search) => {
-  setSearchTitle(search.target.value);
-  filtro(search.target.value);
+/*   setSearchTitle(search.target.value); */
+  props.filterCity(props.cities, search.target.value);
 }
-const filtro = function (resultado) {
-  let resultadoFiltro = posts.filter(function (card)
-  {
-    if (
-      card.city
-        .toString()
-        .toLowerCase()
-        .startsWith(resultado.toLowerCase().trim())
-    ) {
-      return card
-    } return(console.log("filtro"))
-  })
-  setCiudades(resultadoFiltro)
-}
-  console.log(searchTitle)
   return (
     <>
     <div className='searchfilter'>
@@ -49,18 +26,18 @@ const filtro = function (resultado) {
       <input
         type="text"
         placeholder="Search..."
-        value={searchTitle}
         onChange={searching}
       />
       </div>
     <div className="container d-flex justify-content-center h-100">
       <div className='row'>   
-      {loading ? (<h4>Loading ...</h4>) : (console.log("este es el console log de loading"))}
-      {ciudades.length !== 0 ? (
-        ciudades.map((item) => (
-        <div className='col-md-4 container-fluid' >
+      {loading ? (<Spinner/>) : (console.log("este es el console log de loading"))}
+      {props.filteredCities?.length !== 0 && props.filteredCities!= null ? (
+        props.filteredCities?.map((item) => (
+        <div className='col-md-4 container-fluid' key={item._id}>
         <div className='card text-center bg-dark h-100'>
       <img src={item.sunset_photo} alt="city" className='img-fluid'/>
+      <img src={item.flag} alt="city"/>
       <div className='card-body text-light container-fluid'>
         <h4 className="card-title">
           {item.city}
@@ -68,7 +45,6 @@ const filtro = function (resultado) {
         <p className='card-text text-secondary '>
           {item.description}
         </p>
-        {console.log(item._id)}
         <LinkRouter to={`/detalles/${item._id}`} className="btn btn-outline-secondary rounded-0">
           Go to this website
         </LinkRouter>
@@ -83,5 +59,14 @@ const filtro = function (resultado) {
     </>
       )
   }
-export default Cards
-
+  const mapStateToProps = (state)=>{
+    return{
+      cities: state.citiesReducer.cities,
+      filteredCities: state.citiesReducer.filteredCities,
+    }
+  }
+  const mapDispatchToProps ={
+    fetchearCiudades: citiesActions.fetchearCiudades,
+    filterCity: citiesActions.filterCity 
+  }
+export default connect(mapStateToProps,mapDispatchToProps)(Cards)

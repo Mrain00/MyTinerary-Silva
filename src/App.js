@@ -11,7 +11,7 @@ function App() {
   return (
       <BrowserRouter>
       <Scroll/>
-      <ResponsiveAppBar/>
+      <ResponsiveAppBar style={{ zInedx:1}}/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/cities' element={<Cities/>}/>

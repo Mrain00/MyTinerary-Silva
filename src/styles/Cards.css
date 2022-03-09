@@ -1,20 +1,62 @@
-.searchfilter{
-margin: 0 auto;
-display: flex;
-flex-direction:column;
-justify-content: center;
-width: 15rem;
-text-align: center;
-padding: 1rem;
-}
-.searchfilter input{
-    border-radius: 1rem;
-    padding: 0 1rem;
-}
-.searchfilter input[placeholder="Search..."]{
-    text-align:center
-
-}
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+.search-box{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    margin: 1rem;
+    }
+  .input-search{
+      display: flex;
+      margin: auto;
+      justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: #212429;
+    padding-right: 40px;
+    color:#53beec;
+  }
+  .input-search::placeholder{
+    color:#212429;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+  }
+  .btn-search{
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color:#ffffff ;
+    background-color:transparent;
+    pointer-events: painted;  
+  }
+  .btn-search:focus ~ .input-search{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  .input-search:focus{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
 .col-md-4{
     margin: 1rem 0;
     text-align: center;
@@ -26,8 +68,31 @@ padding: 1rem;
     height: 100%;
 }
 .filterName{
-    background: linear-gradient(#53beec, #53beeca4);
     text-align: center;
-  -webkit-background-clip: text;
-  color: transparent; 
+    color: #fff; 
+    border: none;
+    font-family: Microsoft Sans Serif!important;
+    font-size: 1.5rem;
+}
+.searchfilter{
+    position: relative;
+    top: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.video{
+    height: 25rem;
+    position: relative;
+    margin: 1rem 0;
+}
+.manttext{
+    top: 10%;
+    position: relative;
+    text-align: center;
+    z-index: 10000;
+    color: #fff;
+    font-family: 'Noto Serif', serif;
+    font-weight: 800;
 }
