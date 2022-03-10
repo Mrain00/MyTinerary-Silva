@@ -62,7 +62,7 @@ function CardDetail({ data }) {
       </ExpandMore>
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
-      <CardContent>
+      <CardContent className="cardContent">
 
         <Typography paragraph>USERNAME:</Typography>
         <Typography paragraph>
