@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Hero from '../../img/hombretravel.svg';
@@ -60,11 +60,11 @@ export default function App() {
         modules={[Grid, Pagination, Autoplay, Navigation]}
         className="mySwiper"
       >
-          {data.map(evento=>
-        <SwiperSlide id='swiperslide'>
+          {data.map((evento, index) =>
+        <SwiperSlide id='swiperslide' key={index}>
             <img
             id="contain" 
-            src={evento.photo}/>
+            src={evento.photo} alt="city"/>
             <div id="eventoname">
             <h3>
                 {evento.city_name}</h3></div>

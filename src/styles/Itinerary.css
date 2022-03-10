@@ -4,7 +4,8 @@
 .CardsItinerary{
     background-color:#212429!important;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 70%;
     margin: 1rem!important;
 }
 .title{
