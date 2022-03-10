@@ -1,0 +1,32 @@
+.userImage{
+    width: 100%;
+}
+.CardsItinerary{
+    background-color:#212429!important;
+    display:flex;
+    flex-direction: row;
+    margin: 1rem!important;
+}
+.title{
+    color:#fff;
+}
+.icon-settings{
+    color:#fff;
+    margin: auto!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    position: relative;
+    top: 50%!important;
+    
+}
+.imageI{
+    margin: auto;
+    padding: 1rem;
+    border-radius: 2rem;
+    object-fit: contain;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+}

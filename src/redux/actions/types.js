@@ -1,0 +1,2 @@
+export const ITINERARIES_GET = "ITINERARIES_GET";
+    

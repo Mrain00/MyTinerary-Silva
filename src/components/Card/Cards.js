@@ -37,7 +37,7 @@ console.log(props)
         <div className='col-md-4 container-fluid' key={item._id}>
         <div className='card text-center bg-dark h-100'>
       <img src={item.sunset_photo} alt="city" className='img-fluid'/>
-      <img src={item.flag} alt="city"/>
+      <img className="flag" src={process.env.PUBLIC_URL+ `/flags/${item.flag}`} alt="city"/>
       <div className='card-body text-light container-fluid'>
         <h4 className="card-title">
           {item.city}

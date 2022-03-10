@@ -96,3 +96,9 @@
     font-family: 'Noto Serif', serif;
     font-weight: 800;
 }
+.flag{
+  width:3rem;
+  position:absolute;
+  top:.5rem;
+  left:.5rem;
+}

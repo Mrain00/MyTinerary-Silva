@@ -2,6 +2,7 @@
 const initialState = { /* declaro el estado inicial */
     cities:[],
     auxiliar:[],
+    city:{},
     filteredCities:[]
 }
 
@@ -16,7 +17,7 @@ const citiesReducer = (state = initialState, action)=>{ /* recibe un "state" y s
         case 'fetchOne':
             return {
                 ...state,
-                cities: action.payload,
+                city: action.payload,
                 auxiliar: action.payload
             }
         case 'delete':
