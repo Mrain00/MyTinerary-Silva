@@ -7,12 +7,11 @@ import {connect} from 'react-redux';
 import citiesActions from '../../redux/actions/citiesActions';
  function Cards(props) {
   const [loading, setLoading] = useState(false);
-  const [searchTitle, setSearchTitle] = useState("");
  useEffect(() => {
     setLoading(true);
     props.fetchearCiudades()
     setLoading(false);
-}, [])
+}, [props])
 console.log(props)
 
  const searching = (search) => {
