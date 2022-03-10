@@ -36,12 +36,6 @@ function CardDetail({ data }) {
   return (
     <Card style={{ marginRight: 10}} className="CardsItinerary">
     <CardHeader className="title"
-
-      action={
-        <IconButton aria-label="settings" color="primary">
-          <MoreVertIcon />
-        </IconButton>
-      }
       title={data.title}
     />
     <CardMedia

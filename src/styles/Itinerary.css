@@ -7,9 +7,11 @@
     flex-direction: column;
     width: 70%;
     margin: 1rem!important;
+    height:40rem;
 }
 .title{
     color:#fff;
+    text-align: center;
 }
 .icon-settings{
     color:#fff;
@@ -26,6 +28,7 @@
     padding: 1rem;
     border-radius: 2rem;
     object-fit: contain;
+    height:80%;
     -webkit-border-radius: 2rem;
     -moz-border-radius: 2rem;
     -ms-border-radius: 2rem;
