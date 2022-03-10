@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -42,8 +42,7 @@ function CardDetail({ data }) {
           <MoreVertIcon />
         </IconButton>
       }
-     
-
+      title={data.title}
     />
     <CardMedia
       className="imageI"  
@@ -75,7 +74,7 @@ function CardDetail({ data }) {
         <Typography paragraph>
           {data.userName}{
         <Avatar sx={{ bgcolor: red[500]}} aria-label="recipe" >
-            <img src={data.userImg} className='userImage'/>
+            <img src={data.userImg} className='userImage' alt="userImage"/>
         </Avatar>
       }
         </Typography>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link as LinkRouter } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { connect } from "react-redux";
@@ -17,6 +17,7 @@ console.log(props);
 
     props.findOneCiudad(id)
     props.itinerariesPerCity(id)
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="container">

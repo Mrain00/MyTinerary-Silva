@@ -1,13 +1,11 @@
 import React from "react";
 import '../../styles/Footer.css'
 import {Link as LinkRouter} from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Footer = ()=>{
     return(
         <footer>
         <div className="part-uno">
             <div>
-            <FontAwesomeIcon icon="fa-duotone fa-flask-round-potion" />
             </div>
             <hr className="linea"/>
             <p>© 2022 MyTinerary Inc. All rights reserved.</p>
