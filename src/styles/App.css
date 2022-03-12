@@ -1,164 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 *::-webkit-scrollbar {
-    width: 0.4rem;
-    background-color:#fff;
+  width: 0.4rem;
+  background-color: #fff;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #53beec;
+  border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #4298bd;
+  border-radius: 2px;
+}
+body {
+  min-height: 100%;
+  width: 100%;
+}
+#appbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 50vw;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  background-color: #53beec;
+  backdrop-filter: blur(1rem);
+  box-shadow: #434244;
+}
+.linkresp {
+  text-decoration: none;
+}
+.logo {
+  height: 2.3rem;
+}
+#accountcircle {
+  width: 2rem;
+  height: 2rem;
+}
+.main {
+  margin-top: 1rem;
+  min-height: calc(100vh - 10vh - 2rem);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main section {
+  align-content: flex-start;
+  align-self: center;
+  text-align: center;
+  margin-left: 1rem;
+  line-height: 5rem;
+  flex-grow: 2;
+}
+.main h1 {
+  color: #434244;
+  font-family: Lexend Deca;
+  font-size: 5rem;
+  font-weight: 800;
+}
+.main p {
+  color: #434244;
+  text-align: center;
+  font-weight: 600;
+}
+#fotomain {
+  align-content: flex-end;
+  width: 50%;
+  height: 88vh;
+  flex-grow: 1;
+}
+.carousel_section {
+  min-height: 50vh;
+}
+.Hero {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 60%;
+  width: 100%;
+}
+.Hero h2 {
+  padding: 3rem;
+  font-size: 2rem;
+  color: #53beec;
+  align-self: center;
+  text-align: center;
+}
+#hero {
+  width: 20rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 304px) and (max-width: 514px) {
+  .main h1 {
+    font-size: 3rem;
   }
-  *::-webkit-scrollbar-thumb {
-    background-color:#53beec;
-    border-radius: 2px;
-  } 
-  *::-webkit-scrollbar-thumb:hover {
-    background-color:#4298bd;
-    border-radius: 2px;
-  }
-body{
-    min-height: 100%;
-    width: 100%;
-}
-#appbar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-    width: 50vw;
-    margin: auto;
-    margin-top: 1rem;
-    border-radius: 2rem;
-    background-color:#53beec;
-    backdrop-filter: blur(1rem);
-    box-shadow: #434244;
-}
-.linkresp{
-    text-decoration: none;
-}
-.logo{
-    height: 2.3rem;
-}
-#accountcircle{
-    width: 2rem;
-    height: 2rem;
-}
-.main{
-    margin-top: 1rem;
-    min-height: calc(100vh - 10vh - 2rem);
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-}
-.main section{
-    align-content: flex-start;
-    align-self: center;
-    text-align: center;
-    margin-left: 1rem;
-    line-height: 5rem;
-    flex-grow: 2;
-}
-.main h1{
-    
-    color: #434244 ;
-    font-family: Lexend Deca;
-    font-size: 5rem;
-    font-weight: 800;
-}
-.main p{
-    color: #434244 ;
-    text-align: center;
-    font-weight: 600;
-}
-#fotomain{
-    align-content: flex-end;
-    width: 50%;
-    height: 88vh;
-    flex-grow: 1;
-}
-.carousel_section{
-    min-height: 50vh;
-}
-.Hero{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    height: 60%;
-    width: 100%;
-}
-.Hero h2{
-    padding: 3rem;
+  .Hero > h2 {
     font-size: 2rem;
-    color: #53beec;
-    align-self: center;
-    text-align: center;
-}
-#hero{
-    width: 30%;
-    margin-bottom: 1rem;
-}
-@media (min-width:304px) and (max-width:514px) {
-    .main h1{
-        font-size: 3rem;
-    }
-    .Hero>h2{
-        font-size: 2rem;
-        padding: 1rem 0;
-    }
-    #hero{
-        width: 50%;
-    }
-}
-@media (min-width:205px) and (max-width:304px){
-    .main h1{
-        font-size: 1.5rem;
-    }
-    .main p{
-        font-size: .8rem;
-    }
-    .Hero>h2{
-        font-size: 1rem;
-        padding: .5rem 0;
-    }
-    #hero{
-        width: 40%;
-    }
-    #appbar{
-        width: 70vw;
-    }
-}
-@media (min-width:105px) and (max-width:205px){
-    .main h1{
-        font-size: 1.4rem;
-    }
-    .main p{
-        font-size: .5rem;
-    }
-    .Hero>h2{
-        font-size: 1rem;
-        padding: .5rem 0;
-    }
-    #hero{
-        width: 40%;
-    }
-    #appbar{
-        width: 100vw;
-    }
-}
-#mant{
-    display: flex;
-    justify-content: center;
     padding: 1rem 0;
-    width: 70%;
-    margin: auto;
+  }
+  #hero {
+    width: 50%;
+  }
 }
-.Call{
-    text-decoration: none;
-    color: #fff;
-    border-radius: 14px;
-    background-color: #53beec;
-    padding: 1rem;
-    font-weight: 600;
+@media (min-width: 205px) and (max-width: 304px) {
+  .main h1 {
+    font-size: 1.5rem;
+  }
+  .main p {
+    font-size: 0.8rem;
+  }
+  .Hero > h2 {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+  #hero {
+    width: 40%;
+  }
+  #appbar {
+    width: 70vw;
+  }
 }
+@media (min-width: 105px) and (max-width: 205px) {
+  .main h1 {
+    font-size: 1.4rem;
+  }
+  .main p {
+    font-size: 0.5rem;
+  }
+  .Hero > h2 {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+  #hero {
+    width: 40%;
+  }
+  #appbar {
+    width: 100vw;
+  }
+}
+#mant {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 70%;
+  margin: auto;
+}
+.Call {
+  text-decoration: none;
+  color: #fff;
+  border-radius: 14px;
+  background-color: #53beec;
+  padding: 1rem;
+  font-weight: 600;
+}
+.no-hay-itinerario {
+  min-height: 70vh;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.rs {
+    color: #1c1c1c65;
+    background: -webkit-linear-gradient(#53beec, #6dd5ed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: #ffffff00 0 0 0 !important;
+    background-clip: text;
+    line-height: normal;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Open Sans', sans-serif;
+  }
+  

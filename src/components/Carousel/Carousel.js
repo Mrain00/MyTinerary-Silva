@@ -1,7 +1,6 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import Hero from '../../img/hombretravel.svg';
 import data from '../../data'
 // Import Swiper styles
 import "swiper/css";
@@ -19,7 +18,7 @@ export default function App() {
             <h2>
             POPULAR MYTINERARIES!
             </h2>
-            <img src={Hero} alt='hero' id='hero' />
+            
       </section>
       <Swiper
         slidesPerView={4}

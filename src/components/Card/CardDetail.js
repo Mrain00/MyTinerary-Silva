@@ -96,6 +96,7 @@ function CardDetail({ data }) {
       </CardContent>
     </Collapse>
   </Card>
+  
   )
 }
 
