@@ -102,3 +102,20 @@
   top:.5rem;
   left:.5rem;
 }
+.search{
+  margin:1rem;
+}
+.searchTitle{
+  color: #1c1c1c;
+  border-color: #1c1c1c;
+  border-radius: .4rem;
+  margin: .4rem;
+  -webkit-border-radius: .4rem;
+  -moz-border-radius: .4rem;
+  -ms-border-radius: .4rem;
+  -o-border-radius: .4rem;
+}
+.filterName{
+  color: #1c1c1c;
+  margin-top:1rem;
+}

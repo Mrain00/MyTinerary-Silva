@@ -63,27 +63,36 @@ function CardDetail({ data }) {
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent className="cardContent">
 
+        <div className="child">
+          
         <Typography paragraph>USERNAME:</Typography>
         <Typography paragraph>
-          {data.userName}{
-        <Avatar sx={{ bgcolor: red[500]}} aria-label="recipe" >
+          {data.userName}
+
+      {<Avatar sx={{ bgcolor: red[500]}} aria-label="recipe" >
             <img src={data.userImg} className='userImage' alt="userImage"/>
-        </Avatar>
-      }
+        </Avatar>}
+
         </Typography>
+        </div>
+        <div className="child">
         <Typography paragraph>HASHTAG/S:</Typography>
-        <Typography paragraph>
+        <Typography paragraph className="childHash"> 
           {data.hashtags}
         </Typography>
+        </div>
+        <div className="child">
         <Typography paragraph>DURATION:</Typography>
         <Typography paragraph>
           {"🕓".repeat(parseInt(data.hours))}
         </Typography>
+        </div>
+        <div className="child">
         <Typography paragraph>PRICE:</Typography>
         <Typography paragraph>
           {"💵".repeat(parseInt(data.price))}
         </Typography>
-
+        </div>
       </CardContent>
     </Collapse>
   </Card>

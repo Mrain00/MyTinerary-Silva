@@ -6,16 +6,17 @@ import Spinner from './Spinner'
 import {connect} from 'react-redux';
 import citiesActions from '../../redux/actions/citiesActions';
  function Cards(props) {
-  const [loading, setLoading] = useState(false);
+/*   const [loading, setLoading] = useState(false); */
+  const [searchTitle, setSearchTitle] = useState("")
  useEffect(() => {
-    setLoading(true);
+/*     setLoading(true); */
     props.fetchearCiudades()
-    setLoading(false);
-}, [props])
-console.log(props)
+ /*    setLoading(false); */
+}, [])
+
 
  const searching = (search) => {
-/*   setSearchTitle(search.target.value); */
+  setSearchTitle(search.target.value);
   props.filterCity(props.cities, search.target.value);
 }
   return (
@@ -26,11 +27,13 @@ console.log(props)
         type="text"
         placeholder="Search..."
         onChange={searching}
+        className="searchTitle"
+        value={searchTitle}        
       />
       </div>
     <div className="container d-flex justify-content-center h-100">
       <div className='row'>   
-      {loading ? (<Spinner/>) : (console.log("este es el console log de loading"))}
+{/*       {loading ? (<Spinner/>) : (console.log("este es el console log de loading"))} */}
       {props.filteredCities?.length !== 0 && props.filteredCities!= null ? (
         props.filteredCities?.map((item) => (
         <div className='col-md-4 container-fluid' key={item._id}>

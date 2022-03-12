@@ -1,16 +1,106 @@
-.container{
- display: flex;
- justify-content: center;
- flex-direction: column;
- align-items: center;
- color: #ffc525;
- min-height: 100vh;
+.container-detalle {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-.texto-nohay{
-    height: 70vh;
-    margin: auto;
-    text-align: center;
+.col-principal {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: calc(-10vh - 1rem);
+  background-size: cover;
+}
+.container-texto {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+}
+.description {
+  color: #fff !important;
+}
+.city {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  /* Fallback: Set a background color. */
+  background-color: red;
+
+  /* Create the gradient. */
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-image: conic-gradient(#53beec, #fff);
+  position: relative;
+}
+.btc {
+  margin: auto;
+  border: #53beec 1px solid;
+  color: #fff;
+  background-color: #53beec;
+  border-radius: 10px !important;
+  padding: 10px;
+  text-decoration: none;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  -ms-border-radius: 10px !important;
+  -o-border-radius: 10px !important;
+}
+.row-title{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content:center;
+    text-align: center;
     align-items: center;
+}
+.earth{
+    width: 3rem;
+    margin-left: .8rem;
+}
+.btc:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.flag {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background {
+  position: relative;
+  z-index: -1000;
+  height: 100%;
+}
+.texto-nohay {
+  height: 70vh;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.description {
+  backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  padding: 0.1rem;
+  line-height: 0.9rem;
+  text-align: center;
+  margin: auto;
+  width: 40vw;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }

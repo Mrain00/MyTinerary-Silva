@@ -9,16 +9,16 @@ import Detalles from './components/Detalles/detalles'
 import Scroll from './components/Scroll'
 function App() {
   return (
-      <BrowserRouter>
-      <Scroll/>
-      <ResponsiveAppBar style={{ zInedx:1}}/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/cities' element={<Cities/>}/>
-          <Route path="/detalles/:id" element={<Detalles/>}/>
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Scroll />
+      <ResponsiveAppBar style={{ zInedx: 1 }} />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/cities' element={<Cities />} />
+        <Route path='/detalles/:id' element={<Detalles />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
