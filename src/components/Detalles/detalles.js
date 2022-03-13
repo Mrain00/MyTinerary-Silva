@@ -43,7 +43,7 @@ const Detalles = (props) => {
                 </h4>
                 <img src={earth} className='earth' alt={"earth"} />
               </div>
-              <p className='card-text text-secondary description' >
+              <p className='card-text description'>
                 {city.description}
               </p>
               <button className='btc' onClick={()=>window.scrollTo(0, 655)}>
@@ -54,7 +54,7 @@ const Detalles = (props) => {
           <img className="flag" src={process.env.PUBLIC_URL + `/flags/${city.flag}`} alt="city" />
         </>)}
       {<div >
-        <ItineraryItem itineraries={itineraries}/>
+        <ItineraryItem itineraries={itineraries} className="itinerary-container"/>
         </div>}
         
     </div>

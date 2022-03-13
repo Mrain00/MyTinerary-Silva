@@ -22,8 +22,11 @@
     background-color:#212429!important;
     display:flex;
     flex-direction: column;
-    width: 70%;
-    margin: 1rem!important;
+    flex-wrap: wrap;
+    width: 40rem;
+    left: calc(40rem - 50%);
+    top: 1rem;
+    margin: 1rem auto!important;
 }
 .title{
     color:#fff;

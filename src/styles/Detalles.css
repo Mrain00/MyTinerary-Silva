@@ -96,6 +96,7 @@
 }
 .description {
   backdrop-filter: blur(4px);
+  color: #fff!important;
   border-radius: 1rem;
   padding: 0.1rem;
   line-height: 0.9rem;
