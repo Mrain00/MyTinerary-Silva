@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,14 +13,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { connect } from 'react-redux';
-import userActions from '../../redux/actions/userActions'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Snack from '../../components/snackbar';
-import FacebookSignUp from "./facebooksignin"
+import FacebookSignUp from "./facebooksignin";
+import userActions from '../../redux/actions/userActions'
+import paisesActions from '../../redux/actions/paisesActions';
 
 function Copyright(props) {
   return (
@@ -39,28 +39,33 @@ function Copyright(props) {
 const theme = createTheme();
 
 function SignUp(props) {
+  console.log(props)
+  /* SELECT */
+  useEffect(() => {
+    props.fetchearPaises()
+  }, []);
 
+  const paises = [...props.pais]
+
+  const [countries, setCountries] = useState("unselected");
+  function handleChange(event){
+    setCountries(event.target.value)
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
       firstName: event.target[0].value,
-      lastName: event.target[1].value,
-      country: event.target[2].value,
-      email: event.target[3].value,
-      password: event.target[4].value,
+      lastName: event.target[2].value,
+      email: event.target[8].value,
+      password: event.target[10].value,
+      country: countries,
+      imagenURL: event.target[6].value,
       from: 'form-Signup'
     }
-    props.signUpUser(userData)
+    console.log(event)
+    console.log(userData)
+    props.signUpUsers(userData)
   }
-  /* SELECT */
-  const [countries, setCountries] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://restcountries.com/v2/all?fields=name")
-      .then((res) => setCountries(res.data))
-      .catch((error) => console.log(error))
-  }, []);
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -110,22 +115,37 @@ function SignUp(props) {
               <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">From</InputLabel>
-
+{/* SELECT */}
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="From"
+                    onChange={handleChange}
                   >
-                    <MenuItem>
+                    <MenuItem defaultValue="Choose your country">
                       Choose your country
                     </MenuItem>
-                    {countries.map((country, key) =>
-                      <MenuItem value={country.name} key={key}>
-                        {country.name}
+                    {paises?.map((country, index) =>
+                      <MenuItem value={country} key={index}>
+                        {country}
                       </MenuItem>)}
 
                   </Select>
                 </FormControl>
+                </Grid>
+{/* PHOTO */}
+<Grid item xs={12}>
+                <FormControl fullWidth>
+                <TextField
+                  autoComplete="family-name"
+                  name="imagenURL"
+                  fullWidth
+                  id="imagenURL"
+                  label="Photo"
+                  autoFocus
+                />
+                </FormControl>
+
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -179,10 +199,12 @@ function SignUp(props) {
 const mapStateToProps = (state) => {
   return {
     message: state.userReducer.message,
+    pais: state.paisesReducer.pais
   }
 }
 
 const mapDispatchToProps = {
-  signUpUser: userActions.signUpUser,
+  signUpUsers: userActions.signUpUsers,
+  fetchearPaises: paisesActions.fetchearPaises
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

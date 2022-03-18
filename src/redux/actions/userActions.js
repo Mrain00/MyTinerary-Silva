@@ -2,11 +2,12 @@ import axios from 'axios';
 
 const userActions = {
 
-    signUpUser: (userData) => {
+    signUpUsers: (userData) => {
+        console.log(userData)
         return async (dispatch, getState) => {
 
             const res = await axios.post('http://localhost:4000/api/auth/signUp', { userData })
-            console.log(res.data)
+            console.log(res)
             dispatch({type: 'message', 
                        payload: {view: true,
                                  message: res.data.message,
@@ -31,11 +32,12 @@ const userActions = {
                       success: user.data.success}});
         } 
     },
-    SignOutUser :(closeuser)=>{
+    signOutUser :(closeuser)=>{
         return async (dispatch, getState) => {
             /* console.log("signout") */
         const user = axios.post('http://localhost:4000/api/auth/signOut',{closeuser})
         localStorage.removeItem("token")
+        console.log(user)
         dispatch({type: 'user', payload: null});
     } 
 },

@@ -9,7 +9,6 @@ const paisesReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'fetchPa':
-            console.log(action.payload);
             return {
                 ...state,
                 pais: action.payload,

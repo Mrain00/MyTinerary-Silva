@@ -10,6 +10,7 @@ import {useDispatch} from 'react-redux'
 
 
 function Snack(props) {
+  console.log(props)
   const dispatch = useDispatch()
 
   const useStyles = makeStyles(theme => ({
