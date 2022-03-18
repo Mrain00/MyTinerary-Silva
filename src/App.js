@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer'
 import Cities from './components/Cities/cities';
 import Detalles from './components/Detalles/detalles'
 import Scroll from './components/Scroll'
+import SignUp from './components/SignUp/SignUp'
+import SignIn from './components/SignUp/SignIn'
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +18,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/cities' element={<Cities />} />
         <Route path='/detalles/:id' element={<Detalles />} />
+        <Route path='/SignUp' element={<SignUp/>} />
+        <Route path='/SignIn' element={<SignIn/>} />
       </Routes>
       <Footer />
     </BrowserRouter>

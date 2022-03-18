@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../img/logo.svg'
 import { Link as LinkRouter } from "react-router-dom";
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const ResponsiveAppBar = () => {
+import { connect } from "react-redux"
+import userActions from '../redux/actions/userActions';
+const ResponsiveAppBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -32,6 +33,10 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+    const SignOut = () => {
+      props.SignOutUser(props.user.email)
+    }
 
   return (
     <AppBar id="appbar" position="static">
@@ -141,11 +146,29 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {props.user ? <>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" onClick={SignOut}>Log Out</Typography>
+                </MenuItem> 
+                </>
+                :
+                <>
+                <MenuItem>
+                  <Typography textAlign="center">
+                  <LinkRouter  to={`/signIn`}>
+                    Sign In
+                    </LinkRouter>
+                    </Typography>
                 </MenuItem>
-              ))}
+                <MenuItem>
+                  <Typography textAlign="center">
+                    <LinkRouter  to={`/signUp`}>
+                    Sign Up
+                    </LinkRouter>
+                    </Typography>
+                </MenuItem>
+                </>}
+                
             </Menu>
           </Box>
         </Toolbar>
@@ -153,4 +176,16 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+const mapStateToProps = (state) => {
+	return {
+		user: state.userReducer.user,
+	}
+}
+const mapDispatchToProps = {
+	SignOutUser: userActions.SignOutUser,
+
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResponsiveAppBar)
