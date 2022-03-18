@@ -15,10 +15,10 @@ const userActions = {
         }
     },
 
-    signInUser: (loggedUser) => {
-        console.log(loggedUser)
+    signInUser: (logedUser) => {
+        console.log(logedUser)
         return async (dispatch, getState) => {
-            const user = await axios.post('http://localhost:4000/api/auth/signIn', { loggedUser })
+            const user = await axios.post('http://localhost:4000/api/auth/signIn', { logedUser })
             /* console.log(user) */
             if(user.data.success){
                 localStorage.setItem("token",user.data.response.token)
@@ -32,7 +32,7 @@ const userActions = {
                       success: user.data.success}});
         } 
     },
-    signOutUser :(closeuser)=>{
+    SignOutUser :(closeuser)=>{
         return async (dispatch, getState) => {
             /* console.log("signout") */
         const user = axios.post('http://localhost:4000/api/auth/signOut',{closeuser})

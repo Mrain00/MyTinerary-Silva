@@ -19,7 +19,7 @@ import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Snack from '../../components/snackbar';
-import FacebookSignUp from "./facebooksignin";
+import FacebookSignUp from "./facebooksignup";
 import userActions from '../../redux/actions/userActions'
 import paisesActions from '../../redux/actions/paisesActions';
 

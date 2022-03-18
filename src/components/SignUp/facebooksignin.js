@@ -25,11 +25,10 @@ function FacebookSignIn(props) {
         cssClass="buttonsocial my-facebook-button-class"
         icon="fa-facebook"
         textButton=" SignIn with Facebook "
-        appId="929972910999686"
+        appId="383191546637976"
         autoLoad={false}
         fields="name,email,picture"
         callback={responseFacebook}
-
       />
     </div>
   );

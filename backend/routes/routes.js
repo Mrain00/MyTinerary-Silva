@@ -9,7 +9,7 @@ const itinerariosControllers = require('../controllers/itinerariosControllers')
 const {obtenerItinerarios, cargarItinerarios, borrarItinerario, modificarItinerario, ObtenerUnItinerarioPorId} = itinerariosControllers
 
 const usersControllers = require('../controllers/userControllers');
-const {signUpUsers, signInUser, signOutUser, verifyEmail, verificarToken}= usersControllers
+const {signUpUsers, signInUser, SignOutUser, verifyEmail, verificarToken}= usersControllers
 /* CIUDADES */
 
 Router.route('/allcities')
@@ -41,7 +41,7 @@ Router.route('/auth/signIn')
 .post(signInUser)
 
 Router.route('/auth/signOut')
-.post(signOutUser)
+.post(SignOutUser)
 
 Router.route('/verify/:uniqueString') //RECIBE EL LINK DE USUARIO
 .get(verifyEmail) 

@@ -15,6 +15,8 @@ import Logo from '../img/logo.svg'
 import { Link as LinkRouter } from "react-router-dom";
 import { connect } from "react-redux"
 import userActions from '../redux/actions/userActions';
+import Avatar from '@mui/material/Avatar';
+
 const ResponsiveAppBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -36,6 +38,7 @@ const ResponsiveAppBar = (props) => {
 
     const SignOut = () => {
       props.SignOutUser(props.user.email)
+      console.log(props.user)
     }
 
   return (
@@ -127,7 +130,8 @@ const ResponsiveAppBar = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <AccountCircle id="accountcircle"/>
+                {props.user ? (  <Avatar alt="Remy Sharp" src={props.user.imagenURL}/>) 
+                : (<AccountCircle id="accountcircle"/>)}
               </IconButton>
             </Tooltip>
             <Menu
@@ -183,7 +187,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = {
 	SignOutUser: userActions.SignOutUser,
-
 }
 
 

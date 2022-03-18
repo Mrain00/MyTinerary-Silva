@@ -155,8 +155,8 @@ const usersControllers = {
         }
     },
     signInUser: async (req, res) => {
-
-        const { email, password, from } = req.body.loggedUser
+        console.log(req)
+        const { email, password, from } = req.body.logedUser
         try {
             const usuarioExiste = await User.findOne({ email })
 
@@ -171,11 +171,12 @@ const usersControllers = {
                     if (contraseñaCoincide.length > 0) {
 
                         const userData = {
-                            id: usuarioExiste._id,
+                            id: usuarioExiste._id,  
                             firstName: usuarioExiste.firstName,
                             lastName: usuarioExiste.lastName,
                             email: usuarioExiste.email,
                             from: usuarioExiste.from,
+                            imagenURL: usuarioExiste.imagenURL
                         }
                         await usuarioExiste.save()
 
@@ -208,12 +209,10 @@ const usersControllers = {
                                 id: usuarioExiste._id,
                                 firstName: usuarioExiste.firstName,
                                 lastName: usuarioExiste.lastName,
-                                country: usuarioExiste.country,
-                                imagenURL: usuarioExiste.imagenURL,
                                 email: usuarioExiste.email,
                                 from: usuarioExiste.from
                             }
-                            const token = jwt.sign(userData, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
                             res.json({
                                 success: true,
                                 from: from,
@@ -243,7 +242,7 @@ const usersControllers = {
             res.json({ success: false, message: "Something went wrong, please try again later" })
         }
     },
-    signOutUser: async (req, res) => {
+    SignOutUser: async (req, res) => {
 
         const email = req.body.closeuser
         const user = await User.findOne({ email })

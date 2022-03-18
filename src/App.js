@@ -9,21 +9,31 @@ import Detalles from './components/Detalles/detalles'
 import Scroll from './components/Scroll'
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignUp/SignIn'
-function App() {
+import { connect } from 'react-redux'
+function App(props) {
   return (
     <BrowserRouter>
       <Scroll />
       <ResponsiveAppBar style={{ zInedx: 1 }} />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='*' element={<Home />} />
         <Route path='/cities' element={<Cities />} />
         <Route path='/detalles/:id' element={<Detalles />} />
-        <Route path='/SignUp' element={<SignUp/>} />
-        <Route path='/SignIn' element={<SignIn/>} />
+        {!props.user && (
+          <>
+            <Route path='/SignUp' element={<SignUp />} />
+            <Route path='/SignIn' element={<SignIn />} />
+          </>)  }
       </Routes>
       <Footer />
     </BrowserRouter>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+  }
+}
+export default connect(mapStateToProps, null)(App);

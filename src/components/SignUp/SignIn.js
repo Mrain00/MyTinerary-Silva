@@ -37,13 +37,15 @@ const theme = createTheme();
 
 function SignIn(props) {
   const handleSubmit = (event) => {
+    console.log(event);
     event.preventDefault()
-    const loggedUser = {
+    const logedUser = {
       email: event.target[0].value,
-      password: event.target[1].value,
+      password: event.target[2].value,
       from: "form-Signin"
     }
-    props.signInUser(loggedUser)
+    props.signInUser(logedUser)
+    console.log(logedUser)
   }
 
   return (
@@ -83,7 +85,7 @@ function SignIn(props) {
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5"style={{color: "#434244"}}>
               Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -106,8 +108,9 @@ function SignIn(props) {
                 autoComplete="current-password"
               />
               <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
+                control={<Checkbox value="remember"/>}
                 label="Remember me"
+                style={{color: "#434244"}}
               />
               <Button
                 type="submit"
@@ -124,7 +127,7 @@ function SignIn(props) {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <div className="text-center">
+                  <div className="text-center" style={{color: "#434244"}}>
                     Dont Have an account?
                     <LinkRouter to="/signup">SignUp</LinkRouter>
                   </div>
