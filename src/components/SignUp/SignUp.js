@@ -18,7 +18,6 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import Snack from '../../components/snackbar';
 import FacebookSignUp from "./facebooksignup";
 import userActions from '../../redux/actions/userActions'
 import paisesActions from '../../redux/actions/paisesActions';
@@ -43,7 +42,7 @@ function SignUp(props) {
   /* SELECT */
   useEffect(() => {
     props.fetchearPaises()
-  }, []);
+  }, [props]);
 
   const paises = [...props.pais]
 
@@ -69,16 +68,9 @@ function SignUp(props) {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-
-        <Snack />
-        <h1 className='mb-5 mt-5'>Create a new User</h1>
-        <h2 className='mb-5'>Using Facebook</h2>
-        <FacebookSignUp />
-
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -173,14 +165,17 @@ function SignUp(props) {
                 />
               </Grid>
             </Grid>
+            <Grid item xs={12} >
+              <FacebookSignUp />
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 1, mb: 1 }}
             >
               Sign Up
             </Button>
+            </Grid>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">

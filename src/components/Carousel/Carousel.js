@@ -13,12 +13,11 @@ import { Grid, Pagination, Autoplay, Navigation } from "swiper";
 
 export default function App() {
   return (
-    <>
+    <div className="mainCarr">
       <section className='Hero'>            
             <h2>
-            POPULAR MYTINERARIES!
+            Popular MyTineraries!
             </h2>
-            
       </section>
       <Swiper
         slidesPerView={4}
@@ -60,7 +59,7 @@ export default function App() {
         className="mySwiper"
       >
           {data.map((evento, index) =>
-        <SwiperSlide id='swiperslide' key={index}>
+        <SwiperSlide id='swiperslide' key={index} style={{flexWrap:'nowrap'}}>
             <img
             id="contain" 
             src={evento.photo} alt="city"/>
@@ -69,6 +68,6 @@ export default function App() {
                 {evento.city_name}</h3></div>
         </SwiperSlide>)}
       </Swiper>
-    </>
+    </div>
   );
 }

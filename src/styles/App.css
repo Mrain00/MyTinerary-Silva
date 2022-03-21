@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fontsfree.net/?s=Avenir');
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +37,19 @@ body {
 }
 .linkresp {
   text-decoration: none;
+  color:#434244 ;
+}
+.linkresp:hover {
+  text-decoration: none;
+  color:#434244 ;
+}
+.linkresp::after:hover, .linkresp::before:hover {
+  text-decoration: none;
+  color: #434244;
+}
+.listita{
+  display: flex;
+  flex-direction: column;
 }
 .logo {
   height: 2.3rem;
@@ -64,6 +78,7 @@ body {
   color: #434244;
   font-family: Lexend Deca;
   font-size: 5rem;
+  text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   font-weight: 800;
 }
 .main p {
@@ -77,27 +92,6 @@ body {
   height: 88vh;
   flex-grow: 1;
 }
-.carousel_section {
-  min-height: 50vh;
-}
-.Hero {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  height: 60%;
-  width: 100%;
-}
-.Hero h2 {
-  padding: 3rem;
-  font-size: 2rem;
-  color: #53beec;
-  align-self: center;
-  text-align: center;
-}
-#hero {
-  width: 20rem;
-  margin-bottom: 1rem;
-}
 @media (min-width: 304px) and (max-width: 514px) {
   .main h1 {
     font-size: 3rem;
@@ -105,9 +99,6 @@ body {
   .Hero > h2 {
     font-size: 2rem;
     padding: 1rem 0;
-  }
-  #hero {
-    width: 50%;
   }
 }
 @media (min-width: 205px) and (max-width: 304px) {
@@ -171,15 +162,17 @@ body {
   flex-direction: column;
 }
 .rs {
-    color: #1c1c1c65;
-    background: -webkit-linear-gradient(#53beec, #6dd5ed);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: #ffffff00 0 0 0 !important;
-    background-clip: text;
-    line-height: normal;
-    text-align: center;
-    font-size: 1.3rem;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
+  color: #1c1c1c65;
+  background: -webkit-linear-gradient(#53beec, #6dd5ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: #ffffff00 0 0 0 !important;
+  background-clip: text;
+  line-height: normal;
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: 'Open Sans', sans-serif;
+}
+.linkresp::after, .linkresp{
+color: #434244;
+}

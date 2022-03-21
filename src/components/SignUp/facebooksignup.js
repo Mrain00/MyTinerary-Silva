@@ -22,19 +22,19 @@ function FacebookSignUp(props) {
       firstName:fullNameSeparado[0],
       lastName:fullNameSeparado[1] + "" + fullNameSeparado[2],
       email: res.email,
+      imagenURL:res.picture.data.url,
       password: res.id,
       from: "facebook",
       country:props.country,
     }
     await props.signUpUsers(userData)
   }
-
   return (
-      <div className="mb-5">
+      <div>
          <FacebookLogin
             cssClass="buttonsocial my-facebook-button-class"
             icon="fa-facebook"
-            textButton=" SignUp with Facebook"
+            textButton=" Sign Up with Facebook"
             appId="383191546637976"
             autoLoad={false}
             fields="name,email,picture"

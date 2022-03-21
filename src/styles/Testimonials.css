@@ -1,0 +1,147 @@
+@import url(//db.onlinewebfonts.com/c/116af611cbcd9e4bada60b4e700430c1?family=Avenir+Light);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.container-reviews {
+  min-height: 25rem;
+  margin: 2rem auto;
+}
+.t-testimonials h3 {
+  color: #434244;
+  text-shadow: rgba(255, 255, 255, 0.15) 1.95px 1.95px 2.6px;
+  font-family: Lexend Deca;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 800;
+}
+.t-testimonials p {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-weight: 600;
+  font-family: "Avenir Light";
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin-bottom: 2.5rem;
+}
+.hr {
+  height: 1.2rem;
+  width: 30rem;
+  margin: auto;
+  position: relative;
+  top: -2rem;
+  z-index: -1;
+  background-color: #53beec;
+}
+.item-container {
+  min-height: 25rem;
+  width: 90%;
+  margin: auto;
+  backdrop-filter: blur(1rem);
+  background-image:linear-gradient(90deg, #89f7fe 0%, #66a6ff 100%) ;
+  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item-1 {
+  background-color: #fff;
+  width: 20rem;
+  height: 15rem;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+.item-2 {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 20rem;
+  height: 15rem;
+}
+.item-3 {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 20rem;
+  height: 15rem;
+}
+.item {
+  margin: 1.2rem 1rem;
+  padding: 1rem;
+  min-height: 16rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.img-item {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+  object-fit: cover;
+  top: -2rem;
+  left: 1rem;
+  box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 5px 2px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.item p {
+  width: 95%;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: -1.5rem auto;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+.hr-line {
+  position: relative;
+  top: 1.5rem;
+  margin: 1rem auto;
+  width: 90%;
+}
+.container-starts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  min-width: 10rem;
+  position: relative;
+  top: .7rem;
+}
+.container-starts svg {
+  margin: 1rem 0;
+  text-align: center;
+  color: #434244;
+  width: 1rem;
+  align-self: center;
+  margin: auto 0;
+}
+.identify {
+    display: flex;
+    width: 100%;
+  min-height: 3rem;
+  padding: .5rem auto;
+  text-align: center;
+  align-self: center;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.idstarts {
+  display: flex;
+  flex-direction: row;
+}

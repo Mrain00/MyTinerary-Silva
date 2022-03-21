@@ -10,10 +10,12 @@ import Scroll from './components/Scroll'
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignUp/SignIn'
 import { connect } from 'react-redux'
+import Snack from './components/snackbar';
 function App(props) {
   return (
     <BrowserRouter>
       <Scroll />
+      <Snack/>
       <ResponsiveAppBar style={{ zInedx: 1 }} />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -22,8 +24,10 @@ function App(props) {
         <Route path='/detalles/:id' element={<Detalles />} />
         {!props.user && (
           <>
-            <Route path='/SignUp' element={<SignUp />} />
-            <Route path='/SignIn' element={<SignIn />} />
+            {/*SI PROPS.USER ESTA FALSE, ME RENDERIZA ESTOS COMPONENTES  */}
+            <Route path='/SignUp' element={<SignUp />} />           {/* TRUE = NO LO RENDERIZA */}
+            <Route path='/SignIn' element={<SignIn />} />              {/* FALSE = LO RENDERIZA */}
+            {/* SI ESTA TRUE NO ME RENDERIZA Y ME DEVUELVE A  */}
           </>)  }
       </Routes>
       <Footer />

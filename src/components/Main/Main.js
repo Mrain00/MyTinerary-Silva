@@ -6,7 +6,7 @@ const Main = ()=>{
     return(
     <div className='main'>
         <section>
-        <h1>MyTinerary</h1>
+        <h1 className='MyTinerary'>MyTinerary</h1>
         <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
         <LinkRouter to="/cities" className="Call">
 

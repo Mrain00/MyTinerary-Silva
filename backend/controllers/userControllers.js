@@ -4,8 +4,6 @@ const crypto = require('crypto')        //NPM CRYPTO
 const nodemailer = require('nodemailer') //NPM NODEMAILER
 const jwt = require('jsonwebtoken')
 
-
-
 const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR EL EMAIL
 
     const transporter = nodemailer.createTransport({ //DEFINIMOS EL TRASPORTE UTILIZANDO NODEMAILER
@@ -145,7 +143,7 @@ const usersControllers = {
                     res.json({
                         success: true,
                         from: "signup",
-                        message: "We've already sent you an email, please check your mailbox to complete the SignUp"
+                        message: "We've already sent you an email, please check your mailbox to complete the Sign Up"
                     }) // AGREGAMOS MENSAJE DE VERIFICACION
                 }
             }
@@ -154,14 +152,14 @@ const usersControllers = {
             res.json({ success: false, message: "Something went wrong, please try again later" }) //CAPTURA EL ERROR
         }
     },
-    signInUser: async (req, res) => {
+    signInUser: async (req, res, okey) => {
         console.log(req)
-        const { email, password, from } = req.body.logedUser
+        const { email, password, from, imagenURL } = req.body.logedUser
         try {
             const usuarioExiste = await User.findOne({ email })
 
             if (!usuarioExiste) {// PRIMERO VERIFICA QUE EL USUARIO EXISTA
-                res.json({ success: false, message: "Your user has not been registered, please do the SignUp" })
+                res.json({ success: false, message: "Your user has not been registered, please do the Sign Up " })
 
             } else {
                 if (from !== "form-Signup") {
@@ -187,14 +185,14 @@ const usersControllers = {
                             success: true,
                             from: from,
                             response: { token, userData },
-                            message: "Welcome back " + userData.firstName,
+                            message: "Welcome back " + userData.firstName + "!",
                         })
 
                     } else {
                         res.json({
                             success: false,
                             from: from,
-                            message: "You have not done the signUp " + from + "si quieres ingresar con este metodo debes hacer el signUp with " + from
+                            message: "You have not done the signUp " + from + "si quieres ingresar con este metodo debes hacer el Sign Up with " + from
                         })
                     }
                 } else {
@@ -207,6 +205,7 @@ const usersControllers = {
 
                             const userData = {
                                 id: usuarioExiste._id,
+                                imagenURL: usuarioExiste.imagenURL,
                                 firstName: usuarioExiste.firstName,
                                 lastName: usuarioExiste.lastName,
                                 email: usuarioExiste.email,
@@ -261,7 +260,7 @@ const usersControllers = {
         } else {
             res.json({
                 success: false,
-                message: "Please retry signingIn"
+                message: "Please retry Sign In"
             })
         }
     },

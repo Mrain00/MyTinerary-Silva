@@ -1,3 +1,4 @@
+
 .containerLog{
 	margin-top: 6.5rem;
 }
@@ -5,15 +6,6 @@
 	text-align: center;
 	color: #434244;
 }
-.panel-heading {
-    padding: 5px 15px;
-}
-
-.panel-footer {
-	padding: 1px 15px;
-	color: #A0A0A0;
-}
-
 .profile-img {
 	width: 96px;
 	height: 96px;
@@ -26,22 +18,48 @@
 
 .buttonsocial{
 	width: 100%;
-	height: 50px;
-	margin-bottom: 5px;
 	display: flex;
-	justify-content: left;
+	justify-content: center;
 	align-items: center;
 	border: 0px;
-	border-radius: 10px !important;
+	border-radius: 4px !important;
+	-webkit-border-radius: 4px !important;
+	-moz-border-radius: 4px !important;
+	-ms-border-radius: 4px !important;
+	-o-border-radius: 4px !important;
 }
 .my-facebook-button-class{
-	background-color: rgb(52, 52, 207);
+	background-image: linear-gradient(90deg, #56ccf2 0%, #2f80ed 100%);
 	color:white;
 	margin: auto;
-	width: 40%;
+	text-align: center;
 }
 
 .buttonsocial :nth-child(1){
-	margin-right: 0px !important;
-	width: 45px !important;
+	margin-right: .5rem !important;
+	text-align: center!important;
+	background-color:#fff ;
+	align-self: center!important;
+	align-content: center!important;
+	border-radius: 30rem!important;
+	color:#53beec;
+	padding: .40rem .60rem;
+	-webkit-border-radius: 30rem!important;
+	-moz-border-radius: 30rem!important;
+	-ms-border-radius: 30rem!important;
+	-o-border-radius: 30rem!important;
 }
+.buttonsocial {
+	height: 2rem;
+	padding: 6px 0;
+	font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+	font-family: "Roboto","Helvetica","Arial",sans-serif;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+	height: 36.4px;
+	text-transform: uppercase;
+	}

@@ -39,8 +39,8 @@ const ResponsiveAppBar = (props) => {
     const SignOut = () => {
       props.SignOutUser(props.user.email)
       console.log(props.user)
+      console.log(props.user.imagenURL)
     }
-
   return (
     <AppBar id="appbar" position="static">
       <Container maxWidth="xl">
@@ -105,7 +105,7 @@ const ResponsiveAppBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            <img className="logo" src={Logo} />
+            <img className='logo' src={Logo} alt='logo'/>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <LinkRouter to="/" className="linkresp">
@@ -130,7 +130,7 @@ const ResponsiveAppBar = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {props.user ? (  <Avatar alt="Remy Sharp" src={props.user.imagenURL}/>) 
+                {props.user ? (  <Avatar alt="Profile" src={props.user.imagenURL}/>) 
                 : (<AccountCircle id="accountcircle"/>)}
               </IconButton>
             </Tooltip>
@@ -150,29 +150,17 @@ const ResponsiveAppBar = (props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {props.user ? <>
+              {props.user === null? (<div className='listita'> <LinkRouter to="/signIn" className="linkresp">
+                <MenuItem value={10} className="linkresp">Sign In</MenuItem>
+              </LinkRouter>
+
+              <LinkRouter to="/signUp" className="linkresp">
+                <MenuItem value={20} className="linkresp">Sign Up</MenuItem>
+              </LinkRouter></div>):(<div>
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" onClick={SignOut}>Log Out</Typography>
+                  <Typography textAlign="center" value={30} onClick={SignOut}>Log Out</Typography>
                 </MenuItem> 
-                </>
-                :
-                <>
-                <MenuItem>
-                  <Typography textAlign="center">
-                  <LinkRouter  to={`/signIn`}>
-                    Sign In
-                    </LinkRouter>
-                    </Typography>
-                </MenuItem>
-                <MenuItem>
-                  <Typography textAlign="center">
-                    <LinkRouter  to={`/signUp`}>
-                    Sign Up
-                    </LinkRouter>
-                    </Typography>
-                </MenuItem>
-                </>}
-                
+                </div>)}
             </Menu>
           </Box>
         </Toolbar>
