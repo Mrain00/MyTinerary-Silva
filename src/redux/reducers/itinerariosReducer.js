@@ -16,5 +16,4 @@ const itinerariesReducers = (state = initialState, action)=>{
         default: 
         return state  
         }}
-        
         export default itinerariesReducers;

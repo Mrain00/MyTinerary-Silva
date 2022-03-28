@@ -42,7 +42,8 @@ function SignUp(props) {
   /* SELECT */
   useEffect(() => {
     props.fetchearPaises()
-  }, [props]);
+    // eslint-disable-next-line
+  }, []);
 
   const paises = [...props.pais]
 

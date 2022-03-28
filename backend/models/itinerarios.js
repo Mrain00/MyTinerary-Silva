@@ -6,13 +6,19 @@ const itinerariosSchema = new mongoose.Schema({
         image: {type:String, required: true},
         userName: {type:String, required: true},
         userImg: {type:String, required: true},
-        likes: {type:Array, required: true},
         hours: {type:Number, required: true},
         price: {type:Number, required: true},
         hashtags: {type:Array, required: true},
         activities: {type:Array, required: true},
-        comments: {type:Array, required: true},
-        cityId: {type:mongoose.Types.ObjectId, ref:'cities', required: true}
+        likes:{ type: Array},
+        comments: [
+                {
+                        commentary: { type: String},
+                        userId:{type: mongoose.Types.ObjectId, ref: 'users'},
+                },
+        ],
+        cityId: {type:mongoose.Types.ObjectId, ref:'cities', required: true},
+
 })
 const Itinerarios = mongoose.model('itinerarios', itinerariosSchema)
 module.exports = Itinerarios

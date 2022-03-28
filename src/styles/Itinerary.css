@@ -1,10 +1,20 @@
 .userImage{
     width: 100%;
+    margin: auto;
+    display: flex;
+    align-content: center;
+}
+.imagecont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .cardContent{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;    
+    flex-wrap: wrap;
     align-items: center;
 }
 .child{
@@ -19,18 +29,42 @@
 }
 .CardsItinerary{
     position:relative;
-    background-color:#212429!important;
+    background: -webkit-linear-gradient(#53beec, #6dd5ed);
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 40rem;
-    left: calc(40rem - 50%);
+    width:40%;
     top: 1rem;
-    margin: 1rem auto!important;
+    margin: 1rem 10%!important;
+    min-height: 100%!important;
+    border-radius: 1rem!important;
+    -webkit-border-radius: 1rem!important;
+    -moz-border-radius: 1rem!important;
+    -ms-border-radius: 1rem!important;
+    -o-border-radius: 1rem!important;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .title{
-    color:#fff;
+    color: #434244;
+    text-shadow: rgb(255 255 255 / 15%) 1.95px 1.95px 2.6px;
+    font-family: Lexend Deca;
     text-align: center;
+    z-index: 1;
+}
+.hr-itinerary{
+    background-color: rgba(255, 255, 255, 0.897);
+    margin: auto;
+    position: relative;
+    top: -1.8rem;
+    z-index: 0;
+    height: .7rem;
+    min-width: 50%;
+    border-radius: .2rem;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
 }
 .icon-settings{
     color:#fff;
@@ -45,11 +79,15 @@
 .imageI{
     margin: auto;
     padding: 1rem;
+    border-radius: 1.4rem;
+    object-fit: cover;
+    -webkit-border-radius: 1.4rem;
+    -moz-border-radius: 1.4rem;
+    -ms-border-radius: 1.4rem;
+    -o-border-radius: 1.4rem;
+}
+.iti-content{
     width: 100%;
-    border-radius: 2rem;
-    object-fit: contain;
-    -webkit-border-radius: 2rem;
-    -moz-border-radius: 2rem;
-    -ms-border-radius: 2rem;
-    -o-border-radius: 2rem;
+    display: flex;
+    justify-content: center;
 }

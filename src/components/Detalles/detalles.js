@@ -1,4 +1,4 @@
-import React, { useEffect/* , useRef */ } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from "react-redux";
 import citiesActions from "../../redux/actions/citiesActions";
@@ -7,35 +7,21 @@ import ItineraryItem from '../Card/ItineraryItem';
 import '../../styles/Detalles.css';
 import earth from '../../img/earth.png';
 const Detalles = (props) => {
-  const {
-    city,
-    itineraries
-  } = props;
+  const [reload, setReload] = useState(false)
+  const { city, itineraries } = props;
   const { id } = useParams()
 
   useEffect(() => {
 
     props.findOneCiudad(id)
     props.itinerariesPerCity(id)
-    // eslint-disable-next-line
-  }, []);
-/*   const myRef = useRef();
-  useEffect(() => {
-    const handleScroll = ()=>{
-      const div = myRef.current
-      console.log(div.getBoundingClientRect()) 
-    }
-    window.addEventListener('scroll', handleScroll)
-    return()=>{
-      window.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
-   */
+    // eslint-disable-next-line     
+  }, [!reload]);
   return (
     <div className="container-detalle" >
       {city._id && (
         <>
-          <div className='col-principal' /* ref={myRef} */ style={{ backgroundImage: `url(${process.env.PUBLIC_URL + `/background/${city.background}`})` }}>
+          <div className='col-principal' style={{ backgroundImage: `url(${process.env.PUBLIC_URL + `/background/${city.background}`})` }}>
             <div className='container-texto'>
               <div className='row-title'>
                 <h4 className="city">
@@ -46,7 +32,7 @@ const Detalles = (props) => {
               <p className='card-text description'>
                 {city.description}
               </p>
-              <button className='btc' onClick={()=>window.scrollTo(0, 655)}>
+              <button className='btc' onClick={() => window.scrollTo(0, 655)}>
                 See More!
               </button>
             </div>
@@ -54,16 +40,17 @@ const Detalles = (props) => {
           <img className="flag" src={process.env.PUBLIC_URL + `/flags/${city.flag}`} alt="city" />
         </>)}
       {<div >
-        <ItineraryItem itineraries={itineraries} className="itinerary-container"/>
-        </div>}
-        
+        <ItineraryItem itineraries={itineraries} reload={reload} setReload={setReload} className="itinerary-container" />
+      </div>}
+
     </div>
   )
 }
 const mapStateToProps = (state) => {
   return {
     city: state.citiesReducer.city,
-    itineraries: state.itinerariesReducers.itineraries
+    itineraries: state.itinerariesReducers.itineraries,
+    userReducer: state.userReducer.user
   };
 };
 

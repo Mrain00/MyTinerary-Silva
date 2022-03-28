@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import userActions from './redux/actions/userActions'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './styles/App.css';
 import './components/NavBar';
@@ -12,6 +14,13 @@ import SignIn from './components/SignUp/SignIn'
 import { connect } from 'react-redux'
 import Snack from './components/snackbar';
 function App(props) {
+  useEffect(() => {
+    if(localStorage.getItem('token') !== null){
+      const token = localStorage.getItem('token')
+      props.VerificarToken(token)
+    }
+    // eslint-disable-next-line
+  }, [])
   return (
     <BrowserRouter>
       <Scroll />
@@ -40,4 +49,7 @@ const mapStateToProps = (state) => {
     user: state.userReducer.user,
   }
 }
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = {
+  VerificarToken: userActions.VerificarToken,
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

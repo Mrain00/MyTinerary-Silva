@@ -6,10 +6,11 @@ const ciudadesController  = require('../controllers/ciudadesControllers')
 const {obtenerCiudades, cargarCiudad, borrarCiudad, modificarCiudad, consultarCiudadesPorID} = ciudadesController
 
 const itinerariosControllers = require('../controllers/itinerariosControllers')
-const {obtenerItinerarios, cargarItinerarios, borrarItinerario, modificarItinerario, ObtenerUnItinerarioPorId} = itinerariosControllers
+const {obtenerItinerarios, cargarItinerarios, borrarItinerario, modificarItinerario, ObtenerUnItinerarioPorId, LikeAndDislike} = itinerariosControllers
 
 const usersControllers = require('../controllers/userControllers');
 const {signUpUsers, signInUser, SignOutUser, verifyEmail, verificarToken}= usersControllers
+
 /* CIUDADES */
 
 Router.route('/allcities')
@@ -49,5 +50,10 @@ Router.route('/verify/:uniqueString') //RECIBE EL LINK DE USUARIO
 
 Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt',{ session:false }), verificarToken)
+
+//
+
+Router.route("/itinerarios/likes/:id")
+.put(passport.authenticate("jwt", { session: false }), LikeAndDislike);
 
 module.exports = Router 

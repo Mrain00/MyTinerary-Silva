@@ -150,7 +150,7 @@ const ResponsiveAppBar = (props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {props.user === null? (<div className='listita'> <LinkRouter to="/signIn" className="linkresp">
+              {props.user === null ? (<div className='listita'> <LinkRouter to="/signIn" className="linkresp">
                 <MenuItem value={10} className="linkresp">Sign In</MenuItem>
               </LinkRouter>
 
