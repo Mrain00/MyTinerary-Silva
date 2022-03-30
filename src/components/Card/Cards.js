@@ -3,16 +3,15 @@ import { useState, useEffect } from 'react'
 import { Link as LinkRouter } from "react-router-dom";
 import '../../styles/Cards.css'
 /* import Spinner from './Spinner'
- */import { connect } from 'react-redux';
+ */
+import { connect } from 'react-redux';
 import citiesActions from '../../redux/actions/citiesActions';
 import backkk from '../../img/fondosearch.png';
 function Cards(props) {
-  /*   const [loading, setLoading] = useState(false); */
   const [searchTitle, setSearchTitle] = useState("")
   useEffect(() => {
-    /*     setLoading(true); */
     props.fetchearCiudades()
-    /*    setLoading(false); */
+        // eslint-disable-next-line     
   }, [])
 
 
@@ -33,7 +32,7 @@ function Cards(props) {
         />
       </div>
       <div className="container d-flex justify-content-center h-100">
-        <div className='row'>
+        <div className='row justify-content-center'>
           {/*       {loading ? (<Spinner/>) : (console.log("este es el console log de loading"))} */}
           {props.filteredCities?.length !== 0 && props.filteredCities != null ? (
             props.filteredCities?.map((item) => (

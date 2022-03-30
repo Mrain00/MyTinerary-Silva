@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -9,17 +9,17 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { connect } from "react-redux";
 import itinerariesActions from '../../redux/actions/itinerariosActions';
 import '../../styles/Itinerary.css'
 import Likes from '../Detalles/likes'
+import activitiesActions from '../../redux/actions/activitiesActions'
+import ActivityItem from '../Detalles/ActivityItem'
 /* import DeleteIcon from '@mui/icons-material/Delete'; */
 /* import EditIcon from '@mui/icons-material/Edit'; */
-/* import { useParams } from 'react-router-dom';
- */
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -32,9 +32,14 @@ const ExpandMore = styled((props) => {
 }));
 
 
-function CardDetail( {data, reload, setReload} ) {
+function CardDetail({ data, reload, setReload, itineraryId, activityPerItinerary }) {
   const [expanded, setExpanded] = React.useState(false);
-
+  const [activities, setActivities] = useState()
+  useEffect(() => {
+    activityPerItinerary(itineraryId)
+      .then((res) => { setActivities(res.response) })
+    // eslint-disable-next-line     
+  }, []);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -42,7 +47,7 @@ function CardDetail( {data, reload, setReload} ) {
 
   return (
     <div className="iti-content">
-      <Card style={{ marginRight: 10 }} className="CardsItinerary">
+      <Card style={{ marginRight: 10 }}className="CardsItinerary">
         <CardHeader className="title"
           title={data.title}
         />
@@ -52,13 +57,14 @@ function CardDetail( {data, reload, setReload} ) {
           component="img"
           height="300"
           image={data.image}
-          alt="Paella dish"
+          alt={data.title}
         />
         <CardActions disableSpacing>
-          <Likes likes={data.likes} reload={reload} setReload={setReload} id={data._id}/>
+          <Likes likes={data.likes} reload={reload} setReload={setReload} id={data._id} />
           <IconButton >
             <ShareIcon />
           </IconButton>
+         
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
@@ -66,6 +72,7 @@ function CardDetail( {data, reload, setReload} ) {
             aria-label="show more"
           >
             <ExpandMoreIcon />
+            
           </ExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -75,7 +82,7 @@ function CardDetail( {data, reload, setReload} ) {
 
               <Typography paragraph>USERNAME:</Typography>
               <Typography paragraph className="imagecont">
-                {<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" >
+                {<Avatar aria-label="recipe" >
                   <img src={data.userImg} className='userImage' alt="userImage" />
                 </Avatar>}
                 {data.userName}
@@ -99,6 +106,7 @@ function CardDetail( {data, reload, setReload} ) {
                 {"💵".repeat(parseInt(data.price))}
               </Typography>
             </div>
+              <ActivityItem activities={activities} />
           </CardContent>
         </Collapse>
       </Card>
@@ -107,6 +115,7 @@ function CardDetail( {data, reload, setReload} ) {
 }
 const mapDispatchToProps = {
   LikeAndDislike: itinerariesActions.LikeAndDislike,
+  activityPerItinerary: activitiesActions.activityPerItinerary
 }
 const mapStateToProps = (state) => {
   return {

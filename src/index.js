@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+/* import reportWebVitals from './reportWebVitals'; */
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Provider} from 'react-redux' /* PROVEER NUESTRA APP */
 import { createStore, applyMiddleware } from 'redux'; /* PROVEER UN STORE AL PROVIDER */

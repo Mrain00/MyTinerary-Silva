@@ -9,10 +9,10 @@ import earth from '../../img/earth.png';
 const Detalles = (props) => {
   const [reload, setReload] = useState(false)
   const { city, itineraries } = props;
+  
   const { id } = useParams()
 
   useEffect(() => {
-
     props.findOneCiudad(id)
     props.itinerariesPerCity(id)
     // eslint-disable-next-line     
@@ -50,12 +50,12 @@ const mapStateToProps = (state) => {
   return {
     city: state.citiesReducer.city,
     itineraries: state.itinerariesReducers.itineraries,
-    userReducer: state.userReducer.user
+    userReducer: state.userReducer.user,
   };
 };
 
 const mapDispatchToProps = {
   findOneCiudad: citiesActions.findOneCiudad,
-  itinerariesPerCity: itinerariesActions.itinerariesPerCity
+  itinerariesPerCity: itinerariesActions.itinerariesPerCity,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Detalles);

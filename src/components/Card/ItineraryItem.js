@@ -16,7 +16,7 @@ const ItineraryItem = ({ itineraries, reload, setReload }) => {
     )
   }
   return (<>
-    {itineraries.map((data, index) => <CardDetail data={data} key={index} reload={reload} setReload={setReload}/>)}
+    {itineraries.map((data, index) => <CardDetail  itineraryId={data._id} data={data} key={index} reload={reload} setReload={setReload}/>)}
     <div className="back-container">
       <LinkRouter to={`/cities`} className="btc back">
         Back to cities!
