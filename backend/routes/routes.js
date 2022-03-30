@@ -79,16 +79,11 @@ Router.route(`/activities/:id`)
 //COMMENTS_CONTROLLERS
 //PLACES ROUTES
 Router.route('/itinerarios/comment')
-
-/* .put(passport.authenticate('jwt',{ session: false }),modifyComment) */
-
-Router.route('/itinerarios/comment/:id')
-/* .delete(passport.authenticate('jwt',{ session: false }),deleteComment) */
-.put(passport.authenticate('jwt',{ session: false }),modifyComment)
 .post(passport.authenticate('jwt',{ session: false }),addComment)
 
-Router.route('/itinerarios/comment/:id/:comment')
-.delete(passport.authenticate('jwt',{ session: false }),deleteComment)
+Router.route('/itinerarios/comment/:id')
+.put(passport.authenticate('jwt',{ session: false }),modifyComment)
+.post(passport.authenticate('jwt',{ session: false }),deleteComment)
 
 
 

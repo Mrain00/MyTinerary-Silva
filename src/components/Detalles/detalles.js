@@ -11,7 +11,7 @@ const Detalles = (props) => {
   const { city, itineraries } = props;
   
   const { id } = useParams()
-
+  /*  aca me   */
   useEffect(() => {
     props.findOneCiudad(id)
     props.itinerariesPerCity(id)

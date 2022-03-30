@@ -1,67 +1,49 @@
-const Itineraries = require('../models/itinerarios')
-
+const Itinerarios = require('../models/itinerarios')
 const commentsControllers = {
-
     addComment: async (req, res) => {
+        const {itineraryId,comments} = req.body
+        const user = req.user._id
         try {
-            const nuevoComment = await Itineraries.findOneAndUpdate(
-            {_id: req.params.id},
-            {$push:
-                 {comments:
-                     { comment: req.body.comment,
-                       userID: req.user._id
-                     }
-                 }
-            }, 
-            {new: true}
-        ).populate("comments.userID","userName")
-            res.json({ success: true, response: nuevoComment, message:"gracias por dejarnos tu comentario"})
+            const nuevoComment = await Itinerarios
+                .findOneAndUpdate({_id:itineraryId}, {$push: {comments: {comment: comments.comment, userID: user}}}, {new: true})
+                .populate("comments.userID", {firstName:1, imagenURL:1, email:1})
+            res.json({ success: true, response:{nuevoComment}, message:"Thanks you for let us your comment!" })
+
         }
         catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Algo ha salido mal intentalo en unos minutos" })
+            res.json({ success: false, message: "Something went wrong, try again in a few minutes!" })
+        }
+    },
+    modifyComment: async (req, res) => {
+        console.log("req.body req.body req.body req.body req.body req.body req.body req.body ")
+        console.log(req.body)
+        const { comments } = req.body
+        const idComment = req.params.id
+        const user = req.user._id
+        try {
+            const modifyComment = await Itinerarios.findOneAndUpdate({"comments._id":idComment}, {$set: {"comments.$.comment": comments.comment}}, {new: true}) /* me devuelve el nuevo dato */
+            console.log(modifyComment)
+            res.json({ success: true, response:{modifyComment}, message:"Your comment has been modified" })
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: true, message: "Something went wrong, try again in a few minutes" })
         }
 
-    },
-    modifyComment: async (req, res) =>{
-        const { comment } = req.body
-        try{
-            const modifyComment = await Itineraries.findOneAndUpdate(
-                {"comments._id":req.params.id},
-                {$set:{"comments.$.comment":comment}},
-                {new:true}
-               
-            )
-            if (modifyComment) {
-                res.json({success: true,
-                response: modifyComment})
-            }else{
-                res.json ({error:"el comentario no se ha encontrado"})
-            }
-        }catch (error){
-            res.json ({success: false,
-            response: error.message})
-        }
-        
     },
     deleteComment: async (req, res) => {
+        const id = req.params.id
+        const user = req.user._id
         try {
-            const deleteComment = await Itineraries.findOneAndUpdate(
-                {_id: req.params.id},
-                {
-                    $pull: {
-                        comments: {
-                            _id: req.params.comment
-                        }
-                    }
-                },
-                {new: true})
+            const deleteComment = await Itinerarios.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true}) /* extraigo comment */
           console.log(deleteComment)
-            res.json({ success: true, response: deleteComment, message: "has eliminado el comentario" })
+            res.json({ success: true, response:{deleteComment}, message: "You deleted the comment" })
 
-        }catch (error) {
+        }
+        catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Algo ha salido mal intentalo en unos minutos" })
+            res.json({ success: false, message: "Something went wrong, try again in a few minutes" })
         }
 
     },

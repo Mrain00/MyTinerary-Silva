@@ -12,7 +12,6 @@ import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { connect } from "react-redux";
-import itinerariesActions from '../../redux/actions/itinerariosActions';
 import '../../styles/Itinerary.css'
 import Likes from '../Detalles/likes'
 import activitiesActions from '../../redux/actions/activitiesActions'
@@ -33,14 +32,19 @@ const ExpandMore = styled((props) => {
 
 
 function CardDetail({ data, reload, setReload, itineraryId, activityPerItinerary }) {
+
   const [expanded, setExpanded] = React.useState(false);
   const [activities, setActivities] = useState()
+console.log(activities)
   useEffect(() => {
     activityPerItinerary(itineraryId)
       .then((res) => { setActivities(res.response) })
     // eslint-disable-next-line     
   }, []);
-
+/*   const comment = {
+    itineraryId:itineraryId,
+    comment: "valor del input"
+  } */
   const handleExpandClick = () => {
     setExpanded(!expanded);
   }
@@ -114,7 +118,6 @@ function CardDetail({ data, reload, setReload, itineraryId, activityPerItinerary
   )
 }
 const mapDispatchToProps = {
-  LikeAndDislike: itinerariesActions.LikeAndDislike,
   activityPerItinerary: activitiesActions.activityPerItinerary
 }
 const mapStateToProps = (state) => {
