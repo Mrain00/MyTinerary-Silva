@@ -7,11 +7,12 @@ import ItineraryItem from '../Card/ItineraryItem';
 import '../../styles/Detalles.css';
 import earth from '../../img/earth.png';
 const Detalles = (props) => {
+  console.log(props)
   const [reload, setReload] = useState(false)
   const { city, itineraries } = props;
   
   const { id } = useParams()
-  /*  aca me   */
+  
   useEffect(() => {
     props.findOneCiudad(id)
     props.itinerariesPerCity(id)

@@ -29,6 +29,7 @@ const itinerariosControllers = {
         console.log(id)
         try {
             const data = await Itinerarios.find({ cityId: id })
+            .populate("comments.userID", {firstName:1, imagenURL:1, email:1})
             res.json({ response: data })
         }
         catch (error) {

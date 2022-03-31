@@ -28,13 +28,15 @@ const commentsControllers = {
         }
         catch (error) {
             console.log(error)
-            res.json({ success: true, message: "Something went wrong, try again in a few minutes" })
+            res.json({ success: false, message: "Something went wrong, try again in a few minutes" })
         }
 
     },
     deleteComment: async (req, res) => {
         const id = req.params.id
         const user = req.user._id
+        console.log(id)
+        console.log(user)
         try {
             const deleteComment = await Itinerarios.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true}) /* extraigo comment */
           console.log(deleteComment)

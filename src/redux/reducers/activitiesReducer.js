@@ -16,8 +16,6 @@ const activitiesReducers = (state = initialState, action)=>{
                             
                     ...state,
                     activities: action.payload,
-                    
-                                       
                 }
            
         default: 

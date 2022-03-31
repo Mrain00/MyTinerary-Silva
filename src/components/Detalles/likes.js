@@ -22,7 +22,6 @@ const Likes = (props) => {
   
   return (
     <div>
-      {" "}
       {props.user ? (<IconButton aria-label="add to favorites" onClick={likesOrDislikes} >
         {props.likes.includes(props.user.id) ? (
           <FavoriteIcon />

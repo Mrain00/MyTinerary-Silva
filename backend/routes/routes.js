@@ -56,7 +56,7 @@ Router.route('/verify/:uniqueString') //RECIBE EL LINK DE USUARIO
 Router.route('/auth/signInToken')
     .get(passport.authenticate('jwt', { session: false }), verificarToken)
 
-//
+//LIKES
 
 Router.route("/itinerarios/likes/:id")
     .put(passport.authenticate("jwt", { session: false }), LikeAndDislike)
@@ -77,7 +77,6 @@ Router.route(`/activities/:id`)
 
 
 //COMMENTS_CONTROLLERS
-//PLACES ROUTES
 Router.route('/itinerarios/comment')
 .post(passport.authenticate('jwt',{ session: false }),addComment)
 

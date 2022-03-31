@@ -16,8 +16,7 @@ import '../../styles/Itinerary.css'
 import Likes from '../Detalles/likes'
 import activitiesActions from '../../redux/actions/activitiesActions'
 import ActivityItem from '../Detalles/ActivityItem'
-/* import DeleteIcon from '@mui/icons-material/Delete'; */
-/* import EditIcon from '@mui/icons-material/Edit'; */
+import Comments from '../Comments/Comments'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -35,7 +34,7 @@ function CardDetail({ data, reload, setReload, itineraryId, activityPerItinerary
 
   const [expanded, setExpanded] = React.useState(false);
   const [activities, setActivities] = useState()
-console.log(activities)
+console.log(data)
   useEffect(() => {
     activityPerItinerary(itineraryId)
       .then((res) => { setActivities(res.response) })
@@ -111,6 +110,11 @@ console.log(activities)
               </Typography>
             </div>
               <ActivityItem activities={activities} />
+              {data.comments.map((comment) => (
+              <Comments itineraryId={data._id} idComment={comment._id} comment={comment}reload={reload} setReload={setReload} key={comment._id} />
+            ))
+
+            }
           </CardContent>
         </Collapse>
       </Card>

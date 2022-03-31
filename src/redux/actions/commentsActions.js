@@ -25,7 +25,7 @@ const commentsActions = {
             return res
         }
     },
-    modifiComment: (comments, id) => {
+    modifyComment: (comments, id) => {
         console.log(comments)
         console.log(id)
         //id es el requerimiento por params de "idComment"
@@ -51,11 +51,11 @@ const commentsActions = {
             return res
         }
     },
-    deleteComment: (id) => {
-        console.log(id)
+    deleteComment: (idComment) => {
+        console.log(idComment)
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post(`http://localhost:4000/api/itinerarios/comment/${id}`, {}, {
+            const res = await axios.post(`http://localhost:4000/api/itinerarios/comment/${idComment}`, {}, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
