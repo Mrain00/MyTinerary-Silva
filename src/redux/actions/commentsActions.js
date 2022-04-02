@@ -25,20 +25,21 @@ const commentsActions = {
             return res
         }
     },
-    modifyComment: (comments, id) => {
-        console.log(comments)
-        console.log(id)
+    modifyComment: (idComment, comments) => {
+        console.log(comments.comment)
+        console.log(idComment)
         //id es el requerimiento por params de "idComment"
         /* comments es el objeto que se desestructura y es igual a comments (req.body) que adentro tiene
         otro objeto con "comment" y "userID"*/
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.put(`http://localhost:4000/api/itinerarios/comment/${id}`, { comments }, {
+            try{
+            const res = await axios.put('http://localhost:4000/api/itinerarios/comment/' + idComment,  { comments }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            console.log(res)
+            //console.log(res)
             dispatch({
                 type: 'message',
                 payload: {
@@ -47,8 +48,11 @@ const commentsActions = {
                     success: res.data.success
                 }
             })
-
             return res
+        } catch (error) {
+            console.log(error)
+        }
+
         }
     },
     deleteComment: (idComment) => {
