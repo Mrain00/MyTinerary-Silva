@@ -8,7 +8,7 @@ const ItineraryItem = ({ itineraries, reload, setReload }) => {
       <div className="no-hay-itinerario">
         <img src={Hero} alt='hero' id='hero' />
         <h1 className="rs">We still do not have guides in this city, we are looking for!</h1>
-        <LinkRouter to={`/cities`} className="btc back" >
+        <LinkRouter to={`/cities`} className="btc back nocity" >
           Back to cities!
         </LinkRouter>
       </div>

@@ -8,7 +8,7 @@ const commentsActions = {
          "se desestructura en comments e itineraryId " */
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post('http://localhost:4000/api/itinerarios/comment', { comments }, {
+            const res = await axios.post('http://localhost:4000/api/itinerarios/comment', { ...comments }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

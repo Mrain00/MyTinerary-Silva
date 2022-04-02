@@ -156,22 +156,35 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 }
-.componentComment {
-  height: 20rem;
-  overflow-y: scroll;
-  width: 100%;
-  background-image: url("https://i.redd.it/2o5t9lhob0r81.png");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-  padding-top: 1rem !important;
-  margin: 1rem;
-  height: 30rem;
-  border-radius: 10px;
-}
 .aver {
   margin-top: 1rem;
   padding-top: 1rem;
   position: relative;
   top: 1rem;
 }
+.componentComment::-webkit-scrollbar {
+  width: 0.4rem;
+    background-color: #fff;
+    border-top-right-radius:26px; 
+    border-bottom-right-radius:26px; 
+  }
+  .componentComment {
+    height: 35rem;
+    width: 100%;
+    background-image: url("https://preview.redd.it/xkn601ucx3r81.png?width=1201&format=png&auto=webp&s=52ae62adfcde46e281ad775d8230de52256120a3");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    padding-top: 1rem !important;
+    margin: 1rem;
+    height: 30rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .componentCommentChild{
+    height: 25rem;
+    width: 100%;
+    margin: auto;
+    overflow-y: scroll;
+
+  }

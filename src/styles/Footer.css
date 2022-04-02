@@ -59,3 +59,17 @@ footer p{
     display: flex;
     flex-direction: column;
 }
+.upParraf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.upParraf>p{
+text-align: center;
+margin: auto 0;
+}
+.reactFooter{
+    width: 3rem;
+    margin-left: 1rem;
+}

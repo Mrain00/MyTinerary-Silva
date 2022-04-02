@@ -17,7 +17,7 @@ import Likes from '../Detalles/likes'
 import activitiesActions from '../../redux/actions/activitiesActions'
 import ActivityItem from '../Detalles/ActivityItem'
 import Comments from '../Comments/Comments'
-import bkgComment from '../../img/bkgComment.png'
+import Comment from '../../components/Comments/Comment'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -112,11 +112,13 @@ console.log(data)
             </div>
               <ActivityItem activities={activities} />
               <div className='componentComment'>
+                <div className='componentCommentChild'>
               {data.comments.map((comment) => (
-              <Comments itineraryId={data._id} idComment={comment._id} comment={comment}reload={reload} setReload={setReload} key={comment._id} className="aver"/>
+              <Comments itineraryId={data._id} idComment={comment._id} comment={comment} reload={reload} setReload={setReload} key={comment._id} className="aver"/>
             ))
-
             }
+            </div>
+            <Comment itineraryId={data._id} reload={reload} setReload={setReload}/>
             </div>
           </CardContent>
         </Collapse>

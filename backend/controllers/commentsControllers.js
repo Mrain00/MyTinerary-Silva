@@ -7,6 +7,7 @@ const commentsControllers = {
             const nuevoComment = await Itinerarios
                 .findOneAndUpdate({_id:itineraryId}, {$push: {comments: {comment: comments.comment, userID: user}}}, {new: true})
                 .populate("comments.userID", {firstName:1, imagenURL:1, email:1})
+                console.log(nuevoComment)
             res.json({ success: true, response:{nuevoComment}, message:"Thanks you for let us your comment!" })
 
         }
@@ -16,8 +17,6 @@ const commentsControllers = {
         }
     },
     modifyComment: async (req, res) => {
-        console.log("req.body req.body req.body req.body req.body req.body req.body req.body ")
-        console.log(req.body)
         const { comments } = req.body
         const idComment = req.params.id
         const user = req.user._id

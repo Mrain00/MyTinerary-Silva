@@ -13,6 +13,7 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .CommentHeader{
     display: flex;
@@ -21,9 +22,13 @@
     padding: .5rem 1rem;
     width: 100%;
     border-bottom: 1px solid  #43424452;
-    background-image:linear-gradient(90deg, #62c1e9 0%, #66a6ff 100%) ;
+    background-image: url('https://i.redd.it/wegb9ulmx3r81.jpg');
     border-top-left-radius:10px;
     border-top-right-radius:10px;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  
 }
 .CommentHeader>h6{    
     padding-left: 1rem;
@@ -126,4 +131,65 @@ border: none;
 }
 .comment{
     margin: auto;
+}
+.addComment{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* input container */
+.inputComment{
+    display: flex;
+    justify-content: flex-start;
+    background-color: #fff;
+    height: 3rem;
+    width: 95%;
+    margin:.5rem auto;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.SendOutlinedIcon{
+    color:  #53beec;
+    align-self: center;
+    margin-right: .5rem;
+    height: 2rem;
+    width: 2rem;
+}
+.SendOutlinedIcon:hover{
+    color:  #439ec5;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.082);
+    padding: .2rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor:pointer;
+}
+.inputText{
+    padding: 1rem;
+    width: 90%;
+    border-color:#53beec;
+    color: #53beec;
+}
+.inputText::selection{
+    color: #fff;
+    border-color: #53beec;
+}
+.inputText:focus{
+    border-color: #53beec!important;
+    outline: none;
+}
+.ChatOutlinedIcon{
+    color:  #53beec;
+}
+.ChatOutlinedIconPadre{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: .5rem;
 }

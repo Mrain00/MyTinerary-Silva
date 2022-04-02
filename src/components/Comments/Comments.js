@@ -6,13 +6,12 @@ import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import Avatar from '@mui/material/Avatar';
 import '../../styles/comments.css'
+import Swal from 'sweetalert2'
 
 const Comments = (props) => {
     console.log(props.idComment)
     const input = useRef()
-    const [inputText, setInputText] = useState("");
     const [modify, setModify] = useState(false)
-
     async function modificarComentario(idComment) {
         const commentData = {
             comment: input.current.value
@@ -21,15 +20,29 @@ const Comments = (props) => {
         console.log(modify)
         setModify(!modify)
         await props.modifyComment(idComment, commentData)
+        Swal.fire(
+            'Comment modified!',
+            '',
+            'success'
+            )
         props.setReload(!props.reload)
     }
 
     async function eliminarComentario(idComment) {
-        const commentData = {
-            idComment: idComment,
-        }
         const awaitDelete = await props.deleteComment(idComment)
         if (awaitDelete.data.success === true) {
+            Swal.fire({
+                title: 'Are you sure you want to remove the comment?',
+                showCancelButton: true,
+                confirmButtonText: 'Remove',
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  Swal.fire('Comment removed!', '', 'success')
+                } else if (result.isDenied) {
+                  Swal.fire('Changes are not saved')
+                }
+              })
             props.setReload(!props.reload)
         }
 
@@ -103,7 +116,6 @@ const Comments = (props) => {
     )
 }
 const mapDispatchToProps = {
-    addComment: commentsActions.addComment,
     modifyComment: commentsActions.modifyComment,
     deleteComment: commentsActions.deleteComment,
 }

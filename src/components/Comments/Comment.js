@@ -1,87 +1,63 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import { connect } from "react-redux";
-import citiesActions from "../redux/actions/citiesActions";
-import itinerariesActions from '../redux/actions/itinerariesActions';
-import commentsActions from '../redux/actions/commentsActions';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import activitiesActions from '../redux/actions/activitiesActions';
+import commentsActions from '../../redux/actions/commentsActions';
+import { useState } from 'react';
 import Swal from 'sweetalert2'
-
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 const Comment = (props) => {
-  
-    
-    const {id} = useParams()
-    
-    const [inputText, setInputText] = useState("")
-    const [modify, setModify] = useState(false)
-    const [reload, setReload] = useState(false)
-        
-  
-    const cargarComentario = async () => {
-      const commentData = {
+  const [inputText, setInputText] = useState("")
+  /*const [place, setPlace] = useState()*/
+
+  const cargarComentario = async (event) => {
+    const commentData = {
+      itineraryId: props.itineraryId,
+      comments: {
         comment: inputText,
+        userID: props.user
+      },
+    }
+    //console.log(commentData)
+    await props.addComment(commentData)/* llamo a la props y le paso el objeto que ya cree  */
+    Swal.fire(
+      'Comment entered!',
+      '',
+      'success'
+    )
+    props.setReload(!props.reload)
+  }
+  return (
+    <>
+      {props.user ?
+          <div className="inputComment">
+            <label className="ChatOutlinedIconPadre">
+            <ChatOutlinedIcon className="ChatOutlinedIcon"/>
+            </label>
+            <input placeholder='Write a comment...' className="inputText" onChange={(event) => setInputText(event.target.value)} value={inputText} />
+            <SendOutlinedIcon onClick={cargarComentario} className="SendOutlinedIcon" />
+          </div>
+          :
+        <h1 className='yourComment'>Leave us your comment by doing Sign in!!</h1>
       }
-      //console.log(commentData)
-      props.addComment(props.itineraryId, commentData).then(
-        res=>{
-            //console.log(res.response.data.success)
-            if(res.response.data.success) {
-              setInputText("")
-              props.getOneCitie(id)
-              props.getItineraries(id)
-              setReload(!reload)
-              Swal.fire(
-                'Good job!',
-                'Your comment has been sent!',
-                'success'
-              )
-            }
-        }  
-      ).catch(
-          err=>console.log(err)
-      )      
-     
-     }
+    </>
 
-        return (   
-            <>
-            {props.user ?
-                  <div className="card cardComments">
-                    <div className="card-header cardHeaderNew">
-                      LEAVE US YOUR COMMENT!
-                    </div>
-                    <div className="card-body ">
-                      <div >
-                        <input id="nuevoComentario" placeholder='Write a comment...' className="card-text textComments border border-dark mb-3" value={inputText} onChange={(event) => setInputText(event.target.value)} />
-                      </div>
-                      <button onClick={cargarComentario} className="btn btn-primary btnComments">Send</button>
-                    </div>
-                  </div> :
-                  <h1 className='yourComment'>Leave us your comment by doing Sign in!!</h1>
-                }
-            </> 
-                
-         
-        );
 
-    
-   
-    
+  );
+
+
+
+
 }
- 
+
 
 
 const mapDispatchToProps = {
-          addComment: commentsActions.addComment,
+  addComment: commentsActions.addComment,
 };
 
 const mapStateToProps = (state) => {
   return {
-    user:state.userR.user
-    
-             
+    user: state.userReducer.user
   };
 };
 
