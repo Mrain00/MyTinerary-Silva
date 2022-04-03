@@ -6,8 +6,15 @@
 .notFound{
     padding: 1rem;
     border-radius:100rem;
-    width: 100%;
-    height: 100%;
+    width: 25rem!important;
+    position: relative;
+    bottom: 3rem;
+}
+.notFoundText{
+  text-align: center;
+  color: #434244;
+  font-weight: 800;
+  text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .searchfilter img{
   position: absolute;
@@ -77,12 +84,6 @@ input::placeholder{
   color: #fff;
   font-family: 'Noto Serif', serif;
   font-weight: 800;
-}
-.flag{
-  width:3rem;
-  position:absolute;
-  top:.5rem;
-  left:.5rem;
 }
 .searchTitle{
   color: #1c1c1c;

@@ -5,7 +5,9 @@ const ciudadesSchema = new mongoose.Schema({
     country:{type:String, required: true},
     description:{type:String, required: true},
     day_photo:{type:String},
-    sunset_photo:{type:String, required: true} 
+    sunset_photo:{type:String, required: true},
+    currency:{ type: String},
+    language:{ type: String},
 })
 const Ciudades = mongoose.model('cities', ciudadesSchema)
 module.exports = Ciudades

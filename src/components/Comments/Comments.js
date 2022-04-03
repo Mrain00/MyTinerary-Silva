@@ -12,6 +12,8 @@ const Comments = (props) => {
     console.log(props.idComment)
     const input = useRef()
     const [modify, setModify] = useState(false)
+
+
     async function modificarComentario(idComment) {
         const commentData = {
             comment: input.current.value
@@ -28,6 +30,8 @@ const Comments = (props) => {
         props.setReload(!props.reload)
     }
 
+
+    
     async function eliminarComentario(idComment) {
         const awaitDelete = await props.deleteComment(idComment)
         if (awaitDelete.data.success === true) {

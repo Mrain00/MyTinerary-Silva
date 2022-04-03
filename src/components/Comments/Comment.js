@@ -24,6 +24,7 @@ const Comment = (props) => {
       '',
       'success'
     )
+    setInputText("")
     props.setReload(!props.reload)
   }
   return (

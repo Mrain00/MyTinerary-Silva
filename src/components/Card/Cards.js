@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link as LinkRouter } from "react-router-dom";
 import '../../styles/Cards.css'
+import notFound from '../../img/mantenimiento.png'
 /* import Spinner from './Spinner'
  */
 import { connect } from 'react-redux';
@@ -42,8 +43,10 @@ function Cards(props) {
                       {item.city}
                     </h4>
                 </LinkRouter>))
-          ) : (
-            <img alt='notFound' src='https://www.hostingplus.com.co/wp-content/uploads/2020/12/error404quees.jpg' className='notFound' />
+          ) : (<>
+            <h3 className="notFoundText">Oh! it seems that the result was not found</h3>
+            <img alt='notFound' src={notFound} className='notFound' />
+            </>
           )}
         </div>
       </div>

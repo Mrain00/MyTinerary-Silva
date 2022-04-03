@@ -77,12 +77,6 @@
   text-decoration: none;
   color: #fff;
 }
-.flag {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .background {
   position: relative;
   z-index: -1000;
@@ -109,4 +103,49 @@
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
+}
+.section-details{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20rem;
+  width: 100%;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+}
+.section-details_images{
+  width: 11rem;  
+  height: 11rem;
+}
+.flag {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+.country-card{
+  background:linear-gradient(135deg, #DFEC51 0%,#73AA0A 100%);
+}
+.language-card{
+  background:linear-gradient(135deg, #f2d50f 0%,#da0641 100%);
+}
+.currency-card{
+  background:linear-gradient(135deg, #fcdf8a 0%,#f38381 100%);
+}
+.section-details_card{
+  width: 15rem;
+  height: 18rem;
+  border-radius: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text-cityDetail{
+  font-family: 'Avenir Light';
+  text-transform: uppercase;
+  color: #fff ;
+  text-align: center;
 }
