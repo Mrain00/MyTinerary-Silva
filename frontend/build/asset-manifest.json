@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5875a16c.css",
+    "main.js": "/static/js/main.f968ae22.js",
+    "static/media/banner.png": "/static/media/banner.65e9e7791ec50ec1c573.png",
+    "static/media/currency.png": "/static/media/currency.ddd036ac1c0f95de0d56.png",
+    "static/media/language.png": "/static/media/language.a871fa658f70f6517d5c.png",
+    "static/media/country.png": "/static/media/country.89912c5a42d0ea3e9394.png",
+    "static/media/logo.svg": "/static/media/logo.21c1951eda3977d3ca4f13fdc8326093.svg",
+    "static/media/poirtrait-2.jpg": "/static/media/poirtrait-2.97af9f28a7db829d52f1.jpg",
+    "static/media/fondosearch.png": "/static/media/fondosearch.2bcf9d29c257e18d2d16.png",
+    "static/media/huguito.png": "/static/media/huguito.710d05f21330737f2353.png",
+    "static/media/mantenimiento.png": "/static/media/mantenimiento.ab40b09ec9cbdc10bc16.png",
+    "static/media/hombretravel.svg": "/static/media/hombretravel.02dfa17b9245f5657fb828b00edc0c7f.svg",
+    "static/media/earth.png": "/static/media/earth.b6400bd6713ff21f5b4d.png",
+    "static/media/poirtrait-1.jpg": "/static/media/poirtrait-1.0d1e088c2570d23fcbf6.jpg",
+    "index.html": "/index.html",
+    "main.5875a16c.css.map": "/static/css/main.5875a16c.css.map",
+    "main.f968ae22.js.map": "/static/js/main.f968ae22.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5875a16c.css",
+    "static/js/main.f968ae22.js"
+  ]
+}

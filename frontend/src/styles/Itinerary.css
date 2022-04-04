@@ -1,0 +1,190 @@
+.userImage {
+  min-width: 50%;
+  margin: auto;
+  display: flex;
+  align-content: center;
+}
+.imagecont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 100%;
+  padding: 0 !important;
+}
+.child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-self: baseline;
+}
+.childHash {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+.CardsItinerary {
+  position: relative;
+  background: -webkit-linear-gradient(#53beec, #6dd5ed);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 60%;
+  top: 1rem;
+  margin: 1rem 10% !important;
+  min-height: 100% !important;
+  border-radius: 1rem !important;
+  -webkit-border-radius: 1rem !important;
+  -moz-border-radius: 1rem !important;
+  -ms-border-radius: 1rem !important;
+  -o-border-radius: 1rem !important;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.title {
+  color: #434244;
+  text-shadow: rgb(255 255 255 / 15%) 1.95px 1.95px 2.6px;
+  font-family: Lexend Deca;
+  text-align: center;
+  z-index: 1;
+}
+.hr-itinerary {
+  background-color: rgba(255, 255, 255, 0.897);
+  margin: auto;
+  position: relative;
+  top: -1.8rem;
+  z-index: 0;
+  height: 0.7rem;
+  min-width: 50%;
+  border-radius: 0.2rem;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  -ms-border-radius: 0.2rem;
+  -o-border-radius: 0.2rem;
+}
+.icon-settings {
+  color: #fff;
+  margin: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative;
+  top: 50% !important;
+}
+.imageI {
+  margin: auto;
+  width: 85% !important;
+  padding: 1rem;
+  border-radius: 1.4rem;
+  object-fit: cover;
+  -webkit-border-radius: 1.4rem;
+  -moz-border-radius: 1.4rem;
+  -ms-border-radius: 1.4rem;
+  -o-border-radius: 1.4rem;
+}
+.iti-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 477px) and (max-width: 620px) {
+  .CardsItinerary {
+    position: relative;
+    background: -webkit-linear-gradient(#53beec, #6dd5ed);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 60%;
+    top: 1rem;
+    margin: 1rem 10% !important;
+    min-height: 100% !important;
+    border-radius: 1rem !important;
+    -webkit-border-radius: 1rem !important;
+    -moz-border-radius: 1rem !important;
+    -ms-border-radius: 1rem !important;
+    -o-border-radius: 1rem !important;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+@media (min-width: 280px) and (max-width: 477px) {
+  .CardsItinerary {
+    position: relative;
+    background: -webkit-linear-gradient(#53beec, #6dd5ed);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    top: 1rem;
+    margin: 1rem 10% !important;
+    min-height: 100% !important;
+    border-radius: 1rem !important;
+    -webkit-border-radius: 1rem !important;
+    -moz-border-radius: 1rem !important;
+    -ms-border-radius: 1rem !important;
+    -o-border-radius: 1rem !important;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+@media (min-width: 150px) and (max-width: 280) {
+  .CardsItinerary {
+    position: relative;
+    background: -webkit-linear-gradient(#53beec, #6dd5ed);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 100%;
+    top: 1rem;
+    margin: 1rem 10% !important;
+    min-height: 100% !important;
+    border-radius: 1rem !important;
+    -webkit-border-radius: 1rem !important;
+    -moz-border-radius: 1rem !important;
+    -ms-border-radius: 1rem !important;
+    -o-border-radius: 1rem !important;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+.aver {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  position: relative;
+  top: 1rem;
+}
+.componentComment::-webkit-scrollbar {
+  width: 0.4rem;
+    background-color: #fff;
+    border-top-right-radius:26px; 
+    border-bottom-right-radius:26px; 
+  }
+  .componentComment {
+    height: 35rem;
+    width: 100%;
+    background-image: url("https://preview.redd.it/xkn601ucx3r81.png?width=1201&format=png&auto=webp&s=52ae62adfcde46e281ad775d8230de52256120a3");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    padding-top: 1rem !important;
+    margin: 1rem;
+    height: 30rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .componentCommentChild{
+    height: 25rem;
+    width: 100%;
+    margin: auto;
+    overflow-y: scroll;
+
+  }
