@@ -3,7 +3,6 @@ require('./config/database')
 const cors = require('cors')
 const express = require('express')
 const Router = require('./routes/routes')
-const passport = require('passport')
 const app = express()
 const path = require('path')
 //middlewares
