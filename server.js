@@ -3,9 +3,8 @@ require('./config/database')
 const cors = require('cors')
 const express = require('express')
 const Router = require('./routes/routes')
-const port = 4000
+const passport = require('passport')
 const app = express()
-
 
 //middlewares
 app.use(cors())
@@ -21,7 +20,7 @@ if(process.env.NODE_ENV === 'production'){
     app.get('*', (req, res)=>{
         //va a devolver el archivo index.html
         //porque es la unica vista ya que react se encarga de renderizar todas las "paginas" del sitio
-        res.sendFile(path.join(__dirname+'client/build/index.html'))
+        res.sendFile(path.join(__dirname + 'client/build/index.html'))
     })
 }
 
