@@ -4,7 +4,7 @@
   "description": "back-tinerary",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon sever.js",
+    "start": "node sever.js",
     "test": "",
     "heroku-postbuild":"cd frontend && npm install && npm run build"
   },
