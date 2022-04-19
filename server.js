@@ -1,12 +1,17 @@
 require('dotenv').config()
-require('./config/database')
 const cors = require('cors')
 const express = require('express')
+
+require('./config/database')
 const Router = require('./routes/routes')
 const app = express()
+
 const path = require('path')
-//middlewares
+const PORT = process.env.PORT || 4000
+const HOST = process.env.HOST || '0.0.0.0'
+
 app.use(cors())
+//middlewares
 app.use(express.json())
 app.use('/api', Router)
 
@@ -23,4 +28,4 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.listen(process.env.PORT || 4000, process.env.HOST || '0.0.0.0', () => console.log(`server ready on port ${process.env.PORT || 4000}`))
+app.listen(PORT, HOST, () => console.log(`server ready on port ${PORT}`))
