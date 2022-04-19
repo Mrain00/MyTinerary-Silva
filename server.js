@@ -1,6 +1,7 @@
 require('dotenv').config()
 const cors = require('cors')
 const express = require('express')
+const passport = require("passport")
 
 require('./config/database')
 const Router = require('./routes/routes')
@@ -14,6 +15,7 @@ app.use(cors())
 //middlewares
 app.use(express.json())
 app.use('/api', Router)
+app.use(passport.initialize());
 
 
 //si la aplicacion se encuentra en produccion 
