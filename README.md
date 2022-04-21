@@ -6,10 +6,7 @@ Aplicacion web de viajes ✈
 Podes ver la web en el siguiente enlace :  ***
 
 # Trabajo realizado
-
 Una app desarrollada en cinco semanas, realizando dailies diarias para poder resolver los diferentes inconvenientes ya que fue un challenge para el bootcamp cursado en MindHub.
-
-Comenzando 🚀
 
 # Instalar dependencias para el cliente
 npm install
