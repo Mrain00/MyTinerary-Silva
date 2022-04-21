@@ -152,6 +152,9 @@ body {
   padding: 1rem;
   font-weight: 600;
 }
+.Call:hover{
+  color: #fffg;
+}
 .no-hay-itinerario {
   min-height: 80vh;
   margin: auto;
