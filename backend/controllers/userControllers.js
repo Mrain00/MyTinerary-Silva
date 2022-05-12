@@ -24,7 +24,7 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
         subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
         html: `
         <div >
-        <h1 style="color:red">Press <a href=http://localhost:4000/api/verify/${uniqueString}>HERE </a> to confirm your email. Thank You! </h1>
+        <h1 style="color:red">Press <a href=http://localhost:3001/api/verify/${uniqueString}>HERE </a> to confirm your email. Thank You! </h1>
         </div>
         `
 

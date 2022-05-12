@@ -8,7 +8,7 @@ const commentsActions = {
          "se desestructura en comments e itineraryId " */
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post('http://localhost:4000/api/itinerarios/comment', { ...comments }, {
+            const res = await axios.post('http://localhost:3001/api/itinerarios/comment', { ...comments }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -34,7 +34,7 @@ const commentsActions = {
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
             try{
-            const res = await axios.put('http://localhost:4000/api/itinerarios/comment/' + idComment,  { comments }, {
+            const res = await axios.put('http://localhost:3001/api/itinerarios/comment/' + idComment,  { comments }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -59,7 +59,7 @@ const commentsActions = {
         console.log(idComment)
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post(`http://localhost:4000/api/itinerarios/comment/${idComment}`, {}, {
+            const res = await axios.post(`http://localhost:3001/api/itinerarios/comment/${idComment}`, {}, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

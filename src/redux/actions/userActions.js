@@ -6,7 +6,7 @@ const userActions = {
         console.log(userData)
         return async (dispatch, getState) => {
 
-            const res = await axios.post('http://localhost:4000/api/auth/signUp', { userData })
+            const res = await axios.post('http://localhost:3001/api/auth/signUp', { userData })
             console.log(res)
             dispatch({type: 'message', 
                        payload: {view: true,
@@ -18,7 +18,7 @@ const userActions = {
     signInUser: (logedUser) => {
         console.log(logedUser)
         return async (dispatch, getState) => {
-            const user = await axios.post('http://localhost:4000/api/auth/signIn', { logedUser })
+            const user = await axios.post('http://localhost:3001/api/auth/signIn', { logedUser })
             /* console.log(user) */
             if(user.data.success){
                 localStorage.setItem("token",user.data.response.token)
@@ -35,7 +35,7 @@ const userActions = {
     SignOutUser :(closeuser)=>{
         return async (dispatch, getState) => {
             /* console.log("signout") */
-        const user = axios.post('http://localhost:4000/api/auth/signOut',{closeuser})
+        const user = axios.post('http://localhost:3001/api/auth/signOut',{closeuser})
         localStorage.removeItem("token")
         console.log(user)
         dispatch({type: 'user', payload: null});
@@ -46,7 +46,7 @@ VerificarToken: (token) => {
 
     return async (dispatch, getState) => {
         console.log(token)
-        const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
+        const user = await axios.get('http://localhost:3001/api/auth/signInToken', {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
